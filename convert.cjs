@@ -35,6 +35,10 @@ bodyContent = bodyContent.replace(/>horizon grove</g, '>highlinear group<');
 bodyContent = bodyContent.replace(/>Horizon Grove /g, '>Highlinear Group ');
 bodyContent = bodyContent.replace(/welcome to <br\/>Horizon Grove/g, 'welcome to <br/>Highlinear Group');
 
+// Update "A home designed..."
+bodyContent = bodyContent.replace(/A Home Designed For <br\/> Those Who Seek <br\/> More\./gi, 'Homes Designed For <br/> Those Who Seek <br/> More.');
+bodyContent = bodyContent.replace(/A home designed <br\/> for those who <br\/> seek more/gi, 'Homes designed <br/> for those who <br/> seek more');
+
 // Specifically update the welcome subtext
 bodyContent = bodyContent.replace(/A unique space where modern design meets unparalleled convenience, offering a lifestyle beyond expectations./g, 'We create unique spaces where modern design meets unparalleled convenience, offering a lifestyle beyond expectations.');
 
@@ -131,4 +135,4 @@ export default App;
 `;
 
 fs.writeFileSync(path.join(__dirname, 'src', 'App.jsx'), appJsx);
-console.log("App.jsx has been updated to fix the spacing between HIGHLINEAR and GROUP!");
+console.log("App.jsx has been updated with plural 'Homes' text!");
