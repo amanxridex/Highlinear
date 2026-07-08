@@ -64,7 +64,7 @@ const newNav = `
     <div class="absolute left-0 top-[100%] hidden group-hover:block w-48 z-50 pt-1">
       <div class="bg-black border border-white/20 p-1 flex flex-col rounded-sm">
         <a href="#company-overview" class="px-4 py-3 text-[#d4af37] hover:bg-white/10 transition-colors normal-case tracking-normal text-sm">Company Overview</a>
-        <a href="#mission" class="px-4 py-3 text-[#d4af37] hover:bg-white/10 transition-colors normal-case tracking-normal text-sm">Mission & Vision</a>
+        <a href="#mission-vision" class="px-4 py-3 text-[#d4af37] hover:bg-white/10 transition-colors normal-case tracking-normal text-sm">Mission & Vision</a>
       </div>
     </div>
   </li>
@@ -76,9 +76,9 @@ const newNav = `
     </div>
     <div class="absolute left-0 top-[100%] hidden group-hover:block w-56 z-50 pt-1">
       <div class="bg-black border border-white/20 p-1 flex flex-col rounded-sm">
-        <a href="#govt" class="px-4 py-3 text-[#d4af37] hover:bg-white/10 transition-colors normal-case tracking-normal text-sm">Govt. Contracts</a>
-        <a href="#building" class="px-4 py-3 text-[#d4af37] hover:bg-white/10 transition-colors normal-case tracking-normal text-sm">Building Construction</a>
-        <a href="#interior" class="px-4 py-3 text-[#d4af37] hover:bg-white/10 transition-colors normal-case tracking-normal text-sm">Interior Designing</a>
+        <a href="#govt-contracts" class="px-4 py-3 text-[#d4af37] hover:bg-white/10 transition-colors normal-case tracking-normal text-sm">Govt. Contracts</a>
+        <a href="#building-construction" class="px-4 py-3 text-[#d4af37] hover:bg-white/10 transition-colors normal-case tracking-normal text-sm">Building Construction</a>
+        <a href="#interior-designing" class="px-4 py-3 text-[#d4af37] hover:bg-white/10 transition-colors normal-case tracking-normal text-sm">Interior Designing</a>
       </div>
     </div>
   </li>
