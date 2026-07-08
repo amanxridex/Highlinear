@@ -42,6 +42,20 @@ bodyContent = bodyContent.replace(/horizon grove/g, 'highlinear group');
 // Update Founder name
 bodyContent = bodyContent.replace(/Lucas Meyer/gi, 'Malvinder Singh Chauhan');
 
+// Update Stats Cards
+bodyContent = bodyContent.replace(
+  /<span class="text-5xl font-light tracking-tight" data-target="15" id="counter-1">0\+<\/span>/g,
+  '<span class="text-5xl font-light tracking-tight" data-target="9" id="counter-1">9+</span>'
+);
+bodyContent = bodyContent.replace(
+  /<span class="text-5xl font-light tracking-tight" data-target="100" id="counter-2">0%<\/span>/g,
+  '<span class="text-5xl font-light tracking-tight" data-target="97" id="counter-2">97%</span>'
+);
+bodyContent = bodyContent.replace(
+  /<span class="text-5xl font-light tracking-tight" data-target="120" id="counter-3">0\+<\/span>/g,
+  '<span class="text-5xl font-light tracking-tight" data-target="150" id="counter-3">150+</span>'
+);
+
 // Update "A home designed..."
 bodyContent = bodyContent.replace(/A Home Designed For <br\/> Those Who Seek <br\/> More\./gi, 'Homes Designed For <br/> Those Who Seek <br/> More.');
 bodyContent = bodyContent.replace(/A home designed <br\/> for those who <br\/> seek more/gi, 'Homes designed <br/> for those who <br/> seek more');
@@ -167,4 +181,4 @@ export default App;
 `;
 
 fs.writeFileSync(path.join(__dirname, 'src', 'App.jsx'), appJsx);
-console.log("App.jsx has been updated with founder name and global references to Highlinear Group!");
+console.log("App.jsx has been updated with new stats!");
