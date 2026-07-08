@@ -54,7 +54,7 @@ bodyContent = bodyContent.replace(
 // Update Header Navigation Menu
 const oldNav = '<ul class="hidden md:flex gap-8 text-xs uppercase tracking-widest font-medium"><li><a href="#about" class="hover:opacity-100 opacity-70 cursor-pointer transition-opacity">About</a></li><li><a href="#features" class="hover:opacity-100 opacity-70 cursor-pointer transition-opacity">Features</a></li><li><a href="#ready-to-move" class="hover:opacity-100 opacity-70 cursor-pointer transition-opacity">Offers</a></li><li><a href="#apartments" class="hover:opacity-100 opacity-70 cursor-pointer transition-opacity">Apartments</a></li></ul>';
 
-const newNav = \`
+const newNav = `
 <ul class="hidden md:flex gap-8 text-xs uppercase tracking-widest font-medium items-center">
   <li class="relative group">
     <div class="flex items-center gap-1 cursor-pointer text-[#d4af37] hover:text-[#fde08b] transition-colors py-4">
@@ -100,7 +100,7 @@ const newNav = \`
     <a href="#construction" class="hover:opacity-100 opacity-100 cursor-pointer transition-all border border-[#d4af37]/50 hover:border-[#d4af37] hover:bg-[#d4af37]/10 text-[#d4af37] px-4 py-2 rounded-full font-bold ml-2">CONSTRUCTION WORK</a>
   </li>
 </ul>
-\`.replace(/\\n\\s*/g, '');
+`.replace(/\n\s*/g, '');
 
 bodyContent = bodyContent.replace(oldNav, newNav);
 
