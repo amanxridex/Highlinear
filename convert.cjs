@@ -42,6 +42,15 @@ bodyContent = bodyContent.replace(/horizon grove/g, 'highlinear group');
 // Update Founder name
 bodyContent = bodyContent.replace(/Lucas Meyer/gi, 'Malvinder Singh Chauhan');
 
+// Update email
+bodyContent = bodyContent.replace(/Info@Horizongrove\.Com/gi, 'info@highlinear.com');
+
+// Update copyright
+bodyContent = bodyContent.replace(
+  /<div class="flex flex-col md:flex-row gap-2"><span>.*?<\/span><span class="hidden md:block">\|<\/span><span class="text-gray-500">Demo site by.*?<\/span><\/div>/is,
+  '<div class="flex flex-col md:flex-row gap-2 text-center md:text-left"><span>Copyright &copy; 2023 High-Linear Civil Private Limited. All Rights Reserved</span><span class="hidden md:block">|</span><span class="text-gray-500">Designed by <a href="https://amanmishra.work" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">amanmishra.work</a></span></div>'
+);
+
 // Update Stats Cards - EXACT STRING REPLACEMENT
 bodyContent = bodyContent.replace(
   'Experience In Real Estate</div><div class="flex justify-between items-end"><span class="text-5xl font-light tracking-tight flex"><span>0</span>+</span>',
@@ -130,7 +139,7 @@ bodyContent = bodyContent.replace(
 // Replace the HORIZON letters in the footer with HIGHLINEAR.png
 bodyContent = bodyContent.replace(
   /<div class="relative overflow-hidden h-\[13vw\]"><h1 class="text-\[14vw\][\s\S]*?<\/h1><\/div>/,
-  '<div class="relative overflow-hidden flex justify-center py-12"><img src="/HIGHLINEAR.png" class="w-full max-w-4xl object-contain drop-shadow-2xl" /></div>'
+  '<div class="relative overflow-hidden flex justify-center py-12"><img src="/HIGHLINEAR.png" class="w-full max-w-[95%] md:max-w-[70%] object-contain drop-shadow-2xl" /></div>'
 );
 
 const appJsx = `
@@ -183,4 +192,4 @@ export default App;
 `;
 
 fs.writeFileSync(path.join(__dirname, 'src', 'App.jsx'), appJsx);
-console.log("App.jsx has been updated with robust marquee!");
+console.log("App.jsx has been updated with footer changes!");
