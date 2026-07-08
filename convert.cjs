@@ -39,6 +39,16 @@ bodyContent = bodyContent.replace(/welcome to <br\/>Horizon Grove/g, 'welcome to
 bodyContent = bodyContent.replace(/A Home Designed For <br\/> Those Who Seek <br\/> More\./gi, 'Homes Designed For <br/> Those Who Seek <br/> More.');
 bodyContent = bodyContent.replace(/A home designed <br\/> for those who <br\/> seek more/gi, 'Homes designed <br/> for those who <br/> seek more');
 
+// Add scroll animation to the "SPACE THAT INSPIRES" brackets
+bodyContent = bodyContent.replace(
+  /<div class="absolute h-\[60vh\] border-l border-t border-b border-white w-12 opacity-80" style="right:20%"><\/div>/g,
+  '<div class="absolute h-[60vh] border-l border-t border-b border-white w-12 opacity-80" style="right:20%; opacity:0; transform:translateX(20vw)"></div>'
+);
+bodyContent = bodyContent.replace(
+  /<div class="absolute h-\[60vh\] border-r border-t border-b border-white w-12 opacity-80" style="left:20%"><\/div>/g,
+  '<div class="absolute h-[60vh] border-r border-t border-b border-white w-12 opacity-80" style="left:20%; opacity:0; transform:translateX(-20vw)"></div>'
+);
+
 // Specifically update the welcome subtext
 bodyContent = bodyContent.replace(/A unique space where modern design meets unparalleled convenience, offering a lifestyle beyond expectations./g, 'We create unique spaces where modern design meets unparalleled convenience, offering a lifestyle beyond expectations.');
 
@@ -135,4 +145,4 @@ export default App;
 `;
 
 fs.writeFileSync(path.join(__dirname, 'src', 'App.jsx'), appJsx);
-console.log("App.jsx has been updated with plural 'Homes' text!");
+console.log("App.jsx has been updated to animate brackets!");
