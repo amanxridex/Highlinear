@@ -44,28 +44,7 @@ bodyContent = bodyContent.replace(
   '<div class="flex w-max whitespace-nowrap overflow-hidden animate-marquee">'
 );
 
-// Replace HORIZON letters in hero
-const highlinearSpans = "HIGHLINEAR".split('').map(letter => `<span class="text-[15vw] md:text-[11vw] font-normal tracking-tighter uppercase font-sans">${letter}</span>`).join('');
-const horizonRegex = /<div class="flex items-end justify-start -ml-\[1%\] leading-none" style="opacity:0;transform:translateX\(60vw\)"><span class="text-\[19vw\].*?<\/div>/g;
-bodyContent = bodyContent.replace(
-  horizonRegex, 
-  `<div class="flex items-end justify-start -ml-[1%] leading-none" style="opacity:0;transform:translateX(60vw)">${highlinearSpans}</div>`
-);
-
-// Replace GROVE letters in hero with GROUP (using the custom O)
-const customO = `<div class="relative w-[13vw] h-[7.5vw] md:w-[9vw] md:h-[5vw] mx-[0.5vw] mb-[9px] md:mb-[1.5vw]"><div class="absolute inset-0 rounded-t-full border-[1.2vw] border-white border-b-0"></div><div class="absolute bottom-0 left-[1.5vw] right-[1.5vw] h-[2px] bg-transparent"></div></div>`;
-const groupSpans = 
-  `<span class="text-[15vw] md:text-[11vw] font-normal tracking-tighter uppercase font-sans">G</span>` +
-  `<span class="text-[15vw] md:text-[11vw] font-normal tracking-tighter uppercase font-sans">R</span>` +
-  customO + 
-  `<span class="text-[15vw] md:text-[11vw] font-normal tracking-tighter uppercase font-sans">U</span>` +
-  `<span class="text-[15vw] md:text-[11vw] font-normal tracking-tighter uppercase font-sans">P</span>`;
-
-const groveRegex = /<div class="flex justify-center md:justify-start md:pl-\[35vw\] -mt-\[6vw\] leading-none" style="opacity:0;transform:translateX\(-60vw\)"><span class="text-\[19vw\].*?<\/div>/g;
-bodyContent = bodyContent.replace(
-  groveRegex,
-  `<div class="flex justify-center md:justify-start md:pl-[35vw] -mt-[6vw] leading-none" style="opacity:0;transform:translateX(-60vw)">${groupSpans}</div>`
-);
+// We revert the HIGHLINEAR GROUP hero text replacement back to HORIZON GROVE as requested.
 
 // Replace the HORIZON letters in the footer with HIGHLINEAR.png
 bodyContent = bodyContent.replace(
@@ -123,4 +102,4 @@ export default App;
 `;
 
 fs.writeFileSync(path.join(__dirname, 'src', 'App.jsx'), appJsx);
-console.log("App.jsx has been updated to replace all duplicates!");
+console.log("App.jsx has been updated to revert hero text back to HORIZON GROVE!");
