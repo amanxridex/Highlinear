@@ -46,7 +46,7 @@ bodyContent = bodyContent.replace(
 
 // Replace HORIZON letters in hero
 const highlinearSpans = "HIGHLINEAR".split('').map(letter => `<span class="text-[15vw] md:text-[11vw] font-normal tracking-tighter uppercase font-sans">${letter}</span>`).join('');
-const horizonRegex = /<div class="flex items-end justify-start -ml-\[1%\] leading-none" style="opacity:0;transform:translateX\(60vw\)"><span class="text-\[19vw\].*?<\/div>/;
+const horizonRegex = /<div class="flex items-end justify-start -ml-\[1%\] leading-none" style="opacity:0;transform:translateX\(60vw\)"><span class="text-\[19vw\].*?<\/div>/g;
 bodyContent = bodyContent.replace(
   horizonRegex, 
   `<div class="flex items-end justify-start -ml-[1%] leading-none" style="opacity:0;transform:translateX(60vw)">${highlinearSpans}</div>`
@@ -61,7 +61,7 @@ const groupSpans =
   `<span class="text-[15vw] md:text-[11vw] font-normal tracking-tighter uppercase font-sans">U</span>` +
   `<span class="text-[15vw] md:text-[11vw] font-normal tracking-tighter uppercase font-sans">P</span>`;
 
-const groveRegex = /<div class="flex justify-center md:justify-start md:pl-\[35vw\] -mt-\[6vw\] leading-none" style="opacity:0;transform:translateX\(-60vw\)"><span class="text-\[19vw\].*?<\/div>/;
+const groveRegex = /<div class="flex justify-center md:justify-start md:pl-\[35vw\] -mt-\[6vw\] leading-none" style="opacity:0;transform:translateX\(-60vw\)"><span class="text-\[19vw\].*?<\/div>/g;
 bodyContent = bodyContent.replace(
   groveRegex,
   `<div class="flex justify-center md:justify-start md:pl-[35vw] -mt-[6vw] leading-none" style="opacity:0;transform:translateX(-60vw)">${groupSpans}</div>`
@@ -123,4 +123,4 @@ export default App;
 `;
 
 fs.writeFileSync(path.join(__dirname, 'src', 'App.jsx'), appJsx);
-console.log("App.jsx has been updated with new welcome text!");
+console.log("App.jsx has been updated to replace all duplicates!");
