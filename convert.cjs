@@ -1014,6 +1014,6 @@ function App() {
 }
 
 export default App;
-;
+`;
 fs.writeFileSync(path.join(__dirname, 'src', 'App.jsx'), appJsx);
 console.log("App.jsx has been updated with Company Overview routing!");
