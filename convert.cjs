@@ -42,18 +42,20 @@ bodyContent = bodyContent.replace(/horizon grove/g, 'highlinear group');
 // Update Founder name
 bodyContent = bodyContent.replace(/Lucas Meyer/gi, 'Malvinder Singh Chauhan');
 
-// Update Stats Cards
+// Update Stats Cards - EXACT STRING REPLACEMENT
 bodyContent = bodyContent.replace(
-  /<span class="text-5xl font-light tracking-tight" data-target="15" id="counter-1">0\+<\/span>/g,
-  '<span class="text-5xl font-light tracking-tight" data-target="9" id="counter-1">9+</span>'
+  'Experience In Real Estate</div><div class="flex justify-between items-end"><span class="text-5xl font-light tracking-tight flex"><span>0</span>+</span>',
+  'Experience In Real Estate</div><div class="flex justify-between items-end"><span class="text-5xl font-light tracking-tight flex"><span>9</span>+</span>'
 );
+
 bodyContent = bodyContent.replace(
-  /<span class="text-5xl font-light tracking-tight" data-target="100" id="counter-2">0%<\/span>/g,
-  '<span class="text-5xl font-light tracking-tight" data-target="97" id="counter-2">97%</span>'
+  'Satisfied Homeowners</div><div class="flex justify-between items-end"><span class="text-5xl font-light tracking-tight flex"><span>0</span>%</span>',
+  'Satisfied Homeowners</div><div class="flex justify-between items-end"><span class="text-5xl font-light tracking-tight flex"><span>97</span>%</span>'
 );
+
 bodyContent = bodyContent.replace(
-  /<span class="text-5xl font-light tracking-tight" data-target="120" id="counter-3">0\+<\/span>/g,
-  '<span class="text-5xl font-light tracking-tight" data-target="150" id="counter-3">150+</span>'
+  'Ready-To-Move-In Apartments</div><div class="flex justify-between items-end"><span class="text-5xl font-light tracking-tight flex"><span>0</span>+</span>',
+  'Ready-To-Move-In Apartments</div><div class="flex justify-between items-end"><span class="text-5xl font-light tracking-tight flex"><span>150</span>+</span>'
 );
 
 // Update "A home designed..."
@@ -181,4 +183,4 @@ export default App;
 `;
 
 fs.writeFileSync(path.join(__dirname, 'src', 'App.jsx'), appJsx);
-console.log("App.jsx has been updated with new stats!");
+console.log("App.jsx has been updated with real exact match for stats numbers!");
