@@ -51,8 +51,9 @@ bodyContent = bodyContent.replace(
 );
 
 // Replace HORIZON letters in hero with HIGHLINEAR (global replace for duplicate layers)
+// FIXED regex to match until the final N</span></div> to avoid leaving "RIZON" behind
 const highlinearSpans = "HIGHLINEAR".split('').map(letter => `<span class="text-[15vw] md:text-[11vw] font-normal tracking-tighter uppercase font-sans">${letter}</span>`).join('');
-const horizonRegex = /<div class="flex items-end justify-start -ml-\[1%\] leading-none" style="opacity:0;transform:translateX\(60vw\)"><span class="text-\[19vw\].*?<\/div>/g;
+const horizonRegex = /<div class="flex items-end justify-start -ml-\[1%\] leading-none" style="opacity:0;transform:translateX\(60vw\)"><span class="text-\[19vw\].*?N<\/span><\/div>/g;
 bodyContent = bodyContent.replace(
   horizonRegex, 
   `<div class="flex items-end justify-start -ml-[1%] leading-none" style="opacity:0;transform:translateX(60vw)">${highlinearSpans}</div>`
@@ -114,4 +115,4 @@ export default App;
 `;
 
 fs.writeFileSync(path.join(__dirname, 'src', 'App.jsx'), appJsx);
-console.log("App.jsx has been updated to change HORIZON to HIGHLINEAR in the hero!");
+console.log("App.jsx has been updated to fix the RIZON bug!");
