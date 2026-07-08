@@ -195,11 +195,20 @@ bodyContent = bodyContent.replace(
   '<div class="relative overflow-hidden flex justify-center py-12"><img src="/HIGHLINEAR.png" class="w-full max-w-[95%] md:max-w-[70%] object-contain drop-shadow-2xl" /></div>'
 );
 
+// Extract Header and Footer for use in CompanyOverview
+const desktopNavMatch = bodyContent.match(/<nav class="relative z-\[40\][^>]*>[\s\S]*?<\/nav>/i);
+let headerHtml = desktopNavMatch ? desktopNavMatch[0].replace(/style="[^"]*"/g, 'style="opacity:1;transform:translateY(0)"') : '';
+
+const footerMatch = bodyContent.match(/<footer[^>]*>[\s\S]*?<\/footer>/i);
+let footerHtml = footerMatch ? footerMatch[0] : '';
+
 const appJsx = `
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
 const exactHtml = ${JSON.stringify(bodyContent)};
+const headerHtml = ${JSON.stringify(headerHtml)};
+const footerHtml = ${JSON.stringify(footerHtml)};
 
 function CompanyOverview() {
   useEffect(() => {
@@ -207,50 +216,83 @@ function CompanyOverview() {
   }, []);
 
   return (
-    <div className="bg-[#0d0d0d] text-white min-h-screen py-24 px-6 md:px-12 lg:px-24 font-sans relative overflow-hidden">
-      <div className="max-w-4xl mx-auto relative z-10">
-        <a href="#" className="inline-flex items-center gap-2 text-sm text-[#d4af37] hover:text-white transition-colors mb-12 uppercase tracking-widest font-medium border border-[#d4af37]/30 hover:border-white/50 px-4 py-2 rounded-full">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-          Back to Home
-        </a>
-
-        <h1 className="text-5xl md:text-7xl font-light tracking-tighter mb-16 uppercase">Company Overview</h1>
-
-        <div className="space-y-16 text-gray-300 leading-relaxed text-lg md:text-xl font-light">
-          <section>
-            <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-white mb-6 uppercase">Who We Are</h2>
-            <div className="space-y-6">
-              <p>
-                High-Linear Civil Private Limited is a construction company that specializes in government contracts and building construction. The company was founded in 2015 and is headquartered in Dehradun, India. They also have a branch office located in Noida in the National Capital Region (NCR).
-              </p>
-              <p>
-                In addition to their construction services, High-Linear Civil Private Limited offers interior design services. Their team of experienced professionals works closely with clients to create unique and innovative design solutions that meet their specific needs and preferences.
-              </p>
-              <p>
-                The company has established a strong reputation for delivering high-quality projects on time and within budget. They have a team of skilled workers who are dedicated to delivering exceptional results for each and every project they undertake.
-              </p>
-              <p>
-                High-Linear Civil Private Limited is committed to using sustainable building practices and materials whenever possible. They believe in minimizing their environmental impact and contributing to a more sustainable future.
-              </p>
-              <p>
-                Overall, High-Linear Civil Private Limited is a reliable and experienced construction company that provides a range of services to clients in Dehradun and Delhi NCR. They are committed to delivering high-quality work and providing exceptional customer service.
-              </p>
-            </div>
-          </section>
-
-          <section>
-            <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-white mb-6 uppercase border-t border-white/10 pt-12">What We Do</h2>
-            <div className="space-y-6">
-              <p>
-                The company provides additional services in the form of interior design to complement its construction offerings. With a focus on delivering high-quality projects that meet client needs and expectations, High-Linear Civil Private Limited has established a reputation as a reliable and professional partner in the construction industry. Its expertise and experience enable the company to handle a wide range of projects, from residential and commercial buildings to infrastructure and public works.
-              </p>
-            </div>
-          </section>
-        </div>
-      </div>
-      
+    <div className="bg-[#0d0d0d] text-white min-h-screen font-sans flex flex-col relative overflow-hidden">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-1/2 h-screen bg-gradient-to-bl from-[#d4af37]/5 to-transparent pointer-events-none z-0"></div>
+
+      {/* Header */}
+      <div 
+        className="w-full bg-[#0d0d0d] border-b border-white/10 sticky top-0 z-[100]" 
+        dangerouslySetInnerHTML={{ __html: headerHtml }} 
+      />
+
+      <main className="flex-1 w-full max-w-7xl mx-auto px-6 md:px-12 py-24 relative z-10">
+        <div className="mb-12">
+          <a href="#" className="inline-flex items-center gap-2 text-sm text-[#d4af37] hover:text-white transition-colors uppercase tracking-widest font-medium border border-[#d4af37]/30 hover:border-white/50 px-4 py-2 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            Back to Home
+          </a>
+        </div>
+
+        <div className="text-center mb-24">
+          <h1 className="text-5xl md:text-7xl font-light tracking-tighter uppercase mb-8">Company Overview</h1>
+          <div className="w-24 h-1 bg-[#d4af37] mx-auto rounded-full blur-[1px]"></div>
+        </div>
+
+        {/* Metrics Section */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-32">
+          <div className="bg-white/5 border border-white/10 p-8 rounded-2xl text-center hover:bg-white/10 transition-colors shadow-xl">
+            <div className="text-4xl md:text-6xl font-light text-[#d4af37] mb-4">9+</div>
+            <div className="text-xs uppercase tracking-widest text-gray-400 leading-relaxed">Years of<br/>Excellence</div>
+          </div>
+          <div className="bg-white/5 border border-white/10 p-8 rounded-2xl text-center hover:bg-white/10 transition-colors shadow-xl">
+            <div className="text-4xl md:text-6xl font-light text-[#d4af37] mb-4">2</div>
+            <div className="text-xs uppercase tracking-widest text-gray-400 leading-relaxed">Strategic<br/>Offices</div>
+          </div>
+          <div className="bg-white/5 border border-white/10 p-8 rounded-2xl text-center hover:bg-white/10 transition-colors shadow-xl">
+            <div className="text-4xl md:text-6xl font-light text-[#d4af37] mb-4">100%</div>
+            <div className="text-xs uppercase tracking-widest text-gray-400 leading-relaxed">Sustainable<br/>Practices</div>
+          </div>
+          <div className="bg-white/5 border border-white/10 p-8 rounded-2xl text-center hover:bg-white/10 transition-colors shadow-xl">
+            <div className="text-4xl md:text-6xl font-light text-[#d4af37] mb-4">∞</div>
+            <div className="text-xs uppercase tracking-widest text-gray-400 leading-relaxed">Commitment to<br/>Quality</div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-start mb-16">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-white mb-10 uppercase flex items-center gap-4">
+              <span className="text-[#d4af37] font-serif italic text-4xl">01.</span> Who We Are
+            </h2>
+            <div className="space-y-8 text-gray-400 font-light leading-relaxed text-lg">
+              <p>High-Linear Civil Private Limited is a construction company that specializes in government contracts and building construction. The company was founded in 2015 and is headquartered in Dehradun, India. They also have a branch office located in Noida in the National Capital Region (NCR).</p>
+              <p>In addition to their construction services, High-Linear Civil Private Limited offers interior design services. Their team of experienced professionals works closely with clients to create unique and innovative design solutions that meet their specific needs and preferences.</p>
+              <p>The company has established a strong reputation for delivering high-quality projects on time and within budget. They have a team of skilled workers who are dedicated to delivering exceptional results for each and every project they undertake.</p>
+              <p>High-Linear Civil Private Limited is committed to using sustainable building practices and materials whenever possible. They believe in minimizing their environmental impact and contributing to a more sustainable future.</p>
+              <p>Overall, High-Linear Civil Private Limited is a reliable and experienced construction company that provides a range of services to clients in Dehradun and Delhi NCR. They are committed to delivering high-quality work and providing exceptional customer service.</p>
+            </div>
+          </div>
+          
+          <div className="sticky top-32">
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-white mb-10 uppercase flex items-center gap-4">
+              <span className="text-[#d4af37] font-serif italic text-4xl">02.</span> What We Do
+            </h2>
+            <div className="bg-[#111] p-8 md:p-12 rounded-3xl border border-white/5 shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#d4af37]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+              <div className="relative z-10 space-y-8 text-gray-300 font-light leading-relaxed text-lg">
+                <p>The company provides additional services in the form of interior design to complement its construction offerings. With a focus on delivering high-quality projects that meet client needs and expectations, High-Linear Civil Private Limited has established a reputation as a reliable and professional partner in the construction industry.</p>
+                <p>Its expertise and experience enable the company to handle a wide range of projects, from residential and commercial buildings to infrastructure and public works.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <div 
+        className="w-full mt-auto bg-[#0d0d0d]"
+        dangerouslySetInnerHTML={{ __html: footerHtml }} 
+      />
     </div>
   );
 }
