@@ -53,7 +53,55 @@ bodyContent = bodyContent.replace(
 
 // Update Header Navigation Menu
 const oldNav = '<ul class="hidden md:flex gap-8 text-xs uppercase tracking-widest font-medium"><li><a href="#about" class="hover:opacity-100 opacity-70 cursor-pointer transition-opacity">About</a></li><li><a href="#features" class="hover:opacity-100 opacity-70 cursor-pointer transition-opacity">Features</a></li><li><a href="#ready-to-move" class="hover:opacity-100 opacity-70 cursor-pointer transition-opacity">Offers</a></li><li><a href="#apartments" class="hover:opacity-100 opacity-70 cursor-pointer transition-opacity">Apartments</a></li></ul>';
-const newNav = '<ul class="hidden md:flex gap-8 text-xs uppercase tracking-widest font-medium items-center"><li><a href="#about" class="hover:opacity-100 opacity-70 cursor-pointer transition-opacity">About Us</a></li><li><a href="#services" class="hover:opacity-100 opacity-70 cursor-pointer transition-opacity">Our Services</a></li><li><a href="#projects" class="hover:opacity-100 opacity-70 cursor-pointer transition-opacity">Our Projects</a></li><li><a href="#construction" class="hover:opacity-100 opacity-100 cursor-pointer transition-all border border-white/20 hover:border-white/50 hover:bg-white/5 px-4 py-2 rounded-full font-bold">Construction Work</a></li></ul>';
+
+const newNav = \`
+<ul class="hidden md:flex gap-8 text-xs uppercase tracking-widest font-medium items-center">
+  <li class="relative group">
+    <div class="flex items-center gap-1 cursor-pointer text-[#d4af37] hover:text-[#fde08b] transition-colors py-4">
+      ABOUT US
+      <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+    </div>
+    <div class="absolute left-0 top-[100%] hidden group-hover:block w-48 z-50 pt-1">
+      <div class="bg-black border border-white/20 p-1 flex flex-col rounded-sm">
+        <a href="#company-overview" class="px-4 py-3 text-[#d4af37] hover:bg-white/10 transition-colors normal-case tracking-normal text-sm">Company Overview</a>
+        <a href="#mission" class="px-4 py-3 text-[#d4af37] hover:bg-white/10 transition-colors normal-case tracking-normal text-sm">Mission & Vision</a>
+      </div>
+    </div>
+  </li>
+
+  <li class="relative group">
+    <div class="flex items-center gap-1 cursor-pointer text-[#d4af37] hover:text-[#fde08b] transition-colors py-4">
+      OUR SERVICES
+      <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+    </div>
+    <div class="absolute left-0 top-[100%] hidden group-hover:block w-56 z-50 pt-1">
+      <div class="bg-black border border-white/20 p-1 flex flex-col rounded-sm">
+        <a href="#govt" class="px-4 py-3 text-[#d4af37] hover:bg-white/10 transition-colors normal-case tracking-normal text-sm">Govt. Contracts</a>
+        <a href="#building" class="px-4 py-3 text-[#d4af37] hover:bg-white/10 transition-colors normal-case tracking-normal text-sm">Building Construction</a>
+        <a href="#interior" class="px-4 py-3 text-[#d4af37] hover:bg-white/10 transition-colors normal-case tracking-normal text-sm">Interior Designing</a>
+      </div>
+    </div>
+  </li>
+
+  <li class="relative group">
+    <div class="flex items-center gap-1 cursor-pointer text-[#d4af37] hover:text-[#fde08b] transition-colors py-4">
+      PROJECTS
+      <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+    </div>
+    <div class="absolute left-0 top-[100%] hidden group-hover:block w-56 z-50 pt-1">
+      <div class="bg-black border border-white/20 p-1 flex flex-col rounded-sm">
+        <a href="#ongoing" class="px-4 py-3 text-[#d4af37] hover:bg-white/10 transition-colors normal-case tracking-normal text-sm">Our Ongoing Projects</a>
+        <a href="#delivered" class="px-4 py-3 text-[#d4af37] hover:bg-white/10 transition-colors normal-case tracking-normal text-sm">Our Delivered Projects</a>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <a href="#construction" class="hover:opacity-100 opacity-100 cursor-pointer transition-all border border-[#d4af37]/50 hover:border-[#d4af37] hover:bg-[#d4af37]/10 text-[#d4af37] px-4 py-2 rounded-full font-bold ml-2">CONSTRUCTION WORK</a>
+  </li>
+</ul>
+\`.replace(/\\n\\s*/g, '');
+
 bodyContent = bodyContent.replace(oldNav, newNav);
 
 // Update Stats Cards - EXACT STRING REPLACEMENT
@@ -197,4 +245,4 @@ export default App;
 `;
 
 fs.writeFileSync(path.join(__dirname, 'src', 'App.jsx'), appJsx);
-console.log("App.jsx has been updated with header navigation changes!");
+console.log("App.jsx has been updated with submenu dropdowns!");
