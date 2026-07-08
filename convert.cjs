@@ -202,15 +202,12 @@ let headerHtml = desktopNavMatch ? desktopNavMatch[0].replace(/style="[^"]*"/g, 
 const footerMatch = bodyContent.match(/<footer[^>]*>[\s\S]*?<\/footer>/i);
 let footerHtml = footerMatch ? footerMatch[0] : '';
 
-// Extract Header and Footer for use in CompanyOverview
-const desktopNavMatch = bodyContent.match(/<nav class="relative z-\[40\][^>]*>[\s\S]*?<\/nav>/i);
-let headerHtml = desktopNavMatch ? desktopNavMatch[0].replace(/style="[^"]*"/g, 'style="opacity:1;transform:translateY(0)"') : '';
+// Add class to slider section for easier identification
+bodyContent = bodyContent.replace(
+  /<section class="relative w-full h-\[80vh\] bg-\[#0d0d0d\] overflow-hidden">/i,
+  '<section class="relative w-full h-[80vh] bg-[#0d0d0d] overflow-hidden image-slider-container">'
+);
 
-const footerMatch = bodyContent.match(/<footer[^>]*>[\s\S]*?<\/footer>/i);
-let footerHtml = footerMatch ? footerMatch[0] : '';
-
-// Extract Header and Footer for use in CompanyOverview
-const desktopNavMatch = bodyContent.match(/<nav class="relative z-\[40\][^>]*>[\s\S]*?<\/nav>/i);
 const appJsx = `
 import React, { useEffect, useState } from 'react';
 import './App.css';
@@ -918,13 +915,68 @@ function App() {
     const container = document.querySelector('.exact-copy-container');
     if (!container) return;
 
+    // --- Add logic for Image Slider (Crossfade animation) ---
+    const sliderSection = container.querySelector('.image-slider-container');
+    let sliderInterval = null;
+    
+    if (sliderSection) {
+      const imagesContainer = sliderSection.querySelector('div > div:first-child');
+      const dotsContainer = sliderSection.querySelector('.flex.justify-center.gap-2');
+      
+      if (imagesContainer) {
+        const images = Array.from(imagesContainer.children).filter(c => c.tagName === 'DIV');
+        let dots = [];
+        if (dotsContainer) {
+          dots = Array.from(dotsContainer.children);
+        }
+        
+        let currentIndex = 0;
+        
+        const showImage = (index) => {
+          images.forEach((img, i) => {
+            img.style.transition = 'opacity 1s ease-in-out';
+            img.style.opacity = i === index ? '1' : '0';
+            img.style.zIndex = i === index ? '1' : '0';
+          });
+          dots.forEach((dot, i) => {
+            dot.className = i === index 
+              ? 'h-1 rounded-full transition-all duration-500 w-8 bg-white cursor-pointer'
+              : 'h-1 rounded-full transition-all duration-500 w-2 bg-white/30 cursor-pointer hover:bg-white/50';
+          });
+        };
+        
+        showImage(currentIndex);
+        
+        sliderInterval = setInterval(() => {
+          currentIndex = (currentIndex + 1) % images.length;
+          showImage(currentIndex);
+        }, 2000);
+        
+        dots.forEach((dot, i) => {
+          dot.onclick = () => {
+            currentIndex = i;
+            showImage(currentIndex);
+            clearInterval(sliderInterval);
+            sliderInterval = setInterval(() => {
+              currentIndex = (currentIndex + 1) % images.length;
+              showImage(currentIndex);
+            }, 2000);
+          };
+        });
+      }
+    }
+    // --- End Image Slider logic ---
+
     const allElements = container.querySelectorAll('*');
     const hiddenElements = [];
     
     allElements.forEach(el => {
       if (el.style.opacity === '0' || el.style.opacity === 0 || el.getAttribute('style')?.includes('opacity:0') || el.getAttribute('style')?.includes('opacity: 0')) {
-        hiddenElements.push(el);
-        el.style.transition = 'all 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
+        // Exclude elements inside the image slider container from the scroll observer!
+        if (!el.closest('.image-slider-container')) {
+          hiddenElements.push(el);
+          el.style.transition = 'all 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
+        }
       }
     });
 
@@ -941,7 +993,10 @@ function App() {
 
     hiddenElements.forEach(el => observer.observe(el));
     
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (sliderInterval) clearInterval(sliderInterval);
+    };
   }, [currentHash]);
 
   if (currentHash === '#company-overview') return <CompanyOverview />;
