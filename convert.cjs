@@ -208,6 +208,11 @@ let headerHtml = desktopNavMatch ? desktopNavMatch[0].replace(/style="[^"]*"/g, 
 const footerMatch = bodyContent.match(/<footer[^>]*>[\s\S]*?<\/footer>/i);
 let footerHtml = footerMatch ? footerMatch[0] : '';
 
+// Update Footer Links
+footerHtml = footerHtml.replace(/"#"(?=\s*class="hover:text-gray-400">Privacy Policy)/i, '"#privacy-policy"');
+footerHtml = footerHtml.replace(/"#"(?=\s*class="hover:text-gray-400">Terms of Service)/i, '"#terms-of-service"');
+footerHtml = footerHtml.replace(/"#"(?=\s*class="hover:text-gray-400">Cookies Settings)/i, '"#cookies-settings"');
+
 // Add class to slider section for easier identification
 bodyContent = bodyContent.replace(
   /<section class="relative w-full h-\[80vh\] bg-\[#0d0d0d\] overflow-hidden">/i,
@@ -221,6 +226,83 @@ import './App.css';
 const exactHtml = ${JSON.stringify(bodyContent)};
 const headerHtml = ${JSON.stringify(headerHtml)};
 const footerHtml = ${JSON.stringify(footerHtml)};
+
+function PolicyPage({ title, children }) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <div className="bg-[#0d0d0d] text-white min-h-screen font-sans flex flex-col relative overflow-hidden">
+      {/* Header */}
+      <div dangerouslySetInnerHTML={{ __html: headerHtml }} />
+      
+      {/* Hero Section */}
+      <section className="relative w-full py-32 md:py-48 flex items-center justify-center border-b border-white/10">
+        <div className="relative z-10 text-center px-6">
+          <div className="text-[#d4af37] text-xs uppercase tracking-widest mb-4 flex justify-center items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse"></div>
+            Legal
+          </div>
+          <h1 className="text-4xl md:text-6xl font-light tracking-tight mb-4 uppercase">{title}</h1>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <section className="relative z-10 max-w-4xl mx-auto px-6 py-16 md:py-24 text-gray-300 font-light leading-relaxed space-y-8 text-lg">
+        {children}
+      </section>
+      
+      {/* Footer */}
+      <div dangerouslySetInnerHTML={{ __html: footerHtml }} />
+    </div>
+  );
+}
+
+function PrivacyPolicy() {
+  return (
+    <PolicyPage title="Privacy Policy">
+      <h2 className="text-2xl text-white font-medium mb-4 mt-8">1. Introduction</h2>
+      <p>High-Linear Civil Private Limited respects your privacy and is committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.</p>
+      
+      <h2 className="text-2xl text-white font-medium mb-4 mt-8">2. Data We Collect</h2>
+      <p>We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows: Identity Data, Contact Data, Technical Data, Usage Data, and Marketing and Communications Data.</p>
+      
+      <h2 className="text-2xl text-white font-medium mb-4 mt-8">3. How We Use Your Data</h2>
+      <p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data to provide our construction and interior design services, manage our relationship with you, and improve our website and services.</p>
+    </PolicyPage>
+  );
+}
+
+function TermsOfService() {
+  return (
+    <PolicyPage title="Terms of Service">
+      <h2 className="text-2xl text-white font-medium mb-4 mt-8">1. Agreement to Terms</h2>
+      <p>By accessing or using our website and services, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access our services.</p>
+      
+      <h2 className="text-2xl text-white font-medium mb-4 mt-8">2. Intellectual Property</h2>
+      <p>The Service and its original content, features, and functionality are and will remain the exclusive property of High-Linear Civil Private Limited and its licensors. Our trademarks may not be used in connection with any product or service without our prior written consent.</p>
+      
+      <h2 className="text-2xl text-white font-medium mb-4 mt-8">3. Limitation of Liability</h2>
+      <p>In no event shall High-Linear Civil Private Limited, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the Service.</p>
+    </PolicyPage>
+  );
+}
+
+function CookiesSettings() {
+  return (
+    <PolicyPage title="Cookies Settings">
+      <h2 className="text-2xl text-white font-medium mb-4 mt-8">1. What Are Cookies</h2>
+      <p>Cookies are small pieces of text sent to your web browser by a website you visit. A cookie file is stored in your web browser and allows the Service or a third-party to recognize you and make your next visit easier and the Service more useful to you.</p>
+      
+      <h2 className="text-2xl text-white font-medium mb-4 mt-8">2. How We Use Cookies</h2>
+      <p>When you use and access the Service, we may place a number of cookies files in your web browser. We use cookies for the following purposes: to enable certain functions of the Service, to provide analytics, and to store your preferences.</p>
+      
+      <h2 className="text-2xl text-white font-medium mb-4 mt-8">3. Your Choices Regarding Cookies</h2>
+      <p>If you'd like to delete cookies or instruct your web browser to delete or refuse cookies, please visit the help pages of your web browser. Please note, however, that if you delete cookies or refuse to accept them, you might not be able to use all of the features we offer, you may not be able to store your preferences, and some of our pages might not display properly.</p>
+    </PolicyPage>
+  );
+}
 
 function ServiceCard({ title, shortDesc, longDesc, imageSrc }) {
   const [expanded, setExpanded] = useState(false);
@@ -607,10 +689,13 @@ function App() {
   useEffect(() => {
     if (
       currentHash === '#company-overview' || 
-      currentHash === '#mission-vision' || 
+      currentHash === '#mission-vision' ||        
       currentHash === '#govt-contracts' || 
       currentHash === '#building-construction' ||
-      currentHash === '#interior-designing'
+      currentHash === '#interior-designing' ||
+      currentHash === '#privacy-policy' ||
+      currentHash === '#terms-of-service' ||
+      currentHash === '#cookies-settings'
     ) return;
 
     const container = document.querySelector('.exact-copy-container');
@@ -705,6 +790,9 @@ function App() {
   if (currentHash === '#govt-contracts') return <GovtContracts />;
   if (currentHash === '#building-construction') return <BuildingConstruction />;
   if (currentHash === '#interior-designing') return <InteriorDesigning />;
+  if (currentHash === '#privacy-policy') return <PrivacyPolicy />;
+  if (currentHash === '#terms-of-service') return <TermsOfService />;
+  if (currentHash === '#cookies-settings') return <CookiesSettings />;
 
   return (
     <div 
