@@ -1,11 +1,9 @@
 const fs = require('fs');
-const html = fs.readFileSync('C:\\Users\\91836\\.gemini\\antigravity-ide\\brain\\cdbf472f-62d9-4381-b9e6-bfeed466122e\\.system_generated\\steps\\40\\content.md', 'utf8');
+const html = fs.readFileSync('C:\\Users\\91836\\PERSONAL\\Highlinear\\src\\App.jsx', 'utf8');
 
-let pos = html.indexOf('>G<');
-let count = 1;
-while (pos !== -1) {
-  console.log(`\nOccurrence ${count}:`);
-  console.log(html.substring(Math.max(0, pos - 200), pos + 200));
-  pos = html.indexOf('>G<', pos + 1);
-  count++;
+const regex = /.{0,20}About the project.{0,20}/gi;
+let match;
+while ((match = regex.exec(html)) !== null) {
+  console.log(`\nMatch at ${match.index}:`);
+  console.log(match[0]);
 }

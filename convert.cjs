@@ -39,6 +39,13 @@ bodyContent = bodyContent.replace(/welcome to <br\/>Horizon Grove/g, 'welcome to
 bodyContent = bodyContent.replace(/A Home Designed For <br\/> Those Who Seek <br\/> More\./gi, 'Homes Designed For <br/> Those Who Seek <br/> More.');
 bodyContent = bodyContent.replace(/A home designed <br\/> for those who <br\/> seek more/gi, 'Homes designed <br/> for those who <br/> seek more');
 
+// Update the About section
+bodyContent = bodyContent.replace(/\[ About the project \]/gi, '[ About the company ]');
+bodyContent = bodyContent.replace(
+  /A new era of residential living — <br\/>immersed in nature, defined by clean architecture and quiet sophistication\. <br\/>(?:Horizon Grove|Highlinear Group) creates a seamless dialogue between architecture and environment\./gi,
+  'Highlinear Group is a premier real estate development firm — <br/>dedicated to crafting visionary spaces, defined by innovative design and uncompromising quality. <br/>We build the foundations for extraordinary living and sustainable futures.'
+);
+
 // Add scroll animation to the "SPACE THAT INSPIRES" brackets
 bodyContent = bodyContent.replace(
   /<div class="absolute h-\[60vh\] border-l border-t border-b border-white w-12 opacity-80" style="right:20%"><\/div>/g,
@@ -145,4 +152,4 @@ export default App;
 `;
 
 fs.writeFileSync(path.join(__dirname, 'src', 'App.jsx'), appJsx);
-console.log("App.jsx has been updated to animate brackets!");
+console.log("App.jsx has been updated to rewrite About section!");
