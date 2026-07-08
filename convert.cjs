@@ -209,6 +209,13 @@ let headerHtml = desktopNavMatch ? desktopNavMatch[0].replace(/style="[^"]*"/g, 
 const footerMatch = bodyContent.match(/<footer[^>]*>[\s\S]*?<\/footer>/i);
 let footerHtml = footerMatch ? footerMatch[0] : '';
 
+// Extract Header and Footer for use in CompanyOverview
+const desktopNavMatch = bodyContent.match(/<nav class="relative z-\[40\][^>]*>[\s\S]*?<\/nav>/i);
+let headerHtml = desktopNavMatch ? desktopNavMatch[0].replace(/style="[^"]*"/g, 'style="opacity:1;transform:translateY(0)"') : '';
+
+const footerMatch = bodyContent.match(/<footer[^>]*>[\s\S]*?<\/footer>/i);
+let footerHtml = footerMatch ? footerMatch[0] : '';
+
 const appJsx = `
 import React, { useEffect, useState } from 'react';
 import './App.css';
@@ -216,6 +223,188 @@ import './App.css';
 const exactHtml = ${JSON.stringify(bodyContent)};
 const headerHtml = ${JSON.stringify(headerHtml)};
 const footerHtml = ${JSON.stringify(footerHtml)};
+
+function ServiceCard({ title, shortDesc, longDesc, imageSrc }) {
+  const [expanded, setExpanded] = useState(false);
+  
+  return (
+    <div className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden group hover:bg-white/10 transition-all duration-500 shadow-2xl flex flex-col h-full">
+      <div className="w-full h-48 md:h-64 relative overflow-hidden">
+        <img src={imageSrc} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
+      </div>
+      <div className="p-8 md:p-10 flex flex-col flex-1">
+        <h3 className="text-2xl font-light tracking-tight text-white mb-4 uppercase flex items-center gap-3">
+          <span className="w-8 h-[1px] bg-[#d4af37]"></span> {title}
+        </h3>
+        <p className="text-gray-400 font-light leading-relaxed mb-6">
+          {shortDesc}
+        </p>
+        
+        <div className={\`overflow-hidden transition-all duration-500 \${expanded ? 'max-h-96 opacity-100 mb-6' : 'max-h-0 opacity-0'}\`}>
+          <div className="pt-4 border-t border-white/10 text-gray-300 font-light leading-relaxed">
+            {longDesc}
+          </div>
+        </div>
+        
+        <div className="mt-auto">
+          <button 
+            onClick={() => setExpanded(!expanded)}
+            className="flex items-center gap-2 text-xs text-[#d4af37] hover:text-white transition-colors uppercase tracking-widest font-medium group/btn"
+          >
+            {expanded ? 'Show Less' : 'Read More'} 
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={\`transition-transform duration-300 \${expanded ? 'rotate-180' : 'group-hover/btn:translate-x-1'}\`}><path d={expanded ? "m18 15-6-6-6 6" : "m9 18 6-6-6-6"}/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function GovtContracts() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <div className="bg-[#0d0d0d] text-white min-h-screen font-sans flex flex-col relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute top-0 right-0 w-1/2 h-screen bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#d4af37]/10 via-transparent to-transparent pointer-events-none z-0"></div>
+
+      {/* Header */}
+      <div 
+        className="w-full bg-[#0d0d0d] border-b border-white/10 sticky top-0 z-[100]" 
+        dangerouslySetInnerHTML={{ __html: headerHtml }} 
+      />
+
+      <main className="flex-1 w-full max-w-7xl mx-auto px-6 md:px-12 py-24 relative z-10">
+        <div className="mb-12">
+          <a href="#" className="inline-flex items-center gap-2 text-sm text-[#d4af37] hover:text-white transition-colors uppercase tracking-widest font-medium border border-[#d4af37]/30 hover:border-white/50 px-4 py-2 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            Back to Home
+          </a>
+        </div>
+
+        <div className="text-center mb-24">
+          <h1 className="text-5xl md:text-7xl font-light tracking-tighter uppercase mb-8">Govt. Contracts</h1>
+          <div className="w-24 h-1 bg-[#d4af37] mx-auto rounded-full blur-[1px]"></div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-32">
+          <div className="lg:col-span-7 space-y-8 text-gray-300 font-light leading-relaxed text-lg">
+            <p className="text-2xl text-white font-medium mb-6">
+              High-Linear Civil Private Limited is a trusted provider of construction services for government contracts. 
+            </p>
+            <p>
+              We specialize in delivering high-quality projects that meet the specific requirements of government agencies, from local municipalities to federal departments. Our team has extensive experience working with government entities, and we understand the unique challenges that these projects can present. We are well-versed in the regulatory and compliance requirements of government contracts, and we have a track record of delivering projects on time and within budget.
+            </p>
+            <p>
+              Our government contracts services are designed to meet the unique needs of each project. We have a team of experienced professionals who are skilled in managing complex projects, from planning and design to construction and closeout. Our team has worked on a wide range of government contracts, including projects for infrastructure, transportation, education, healthcare, and public works.
+            </p>
+            <p>
+              We understand the importance of compliance and regulations in government contracts, and we have a robust quality management system in place to ensure that each project meets the required standards. Our team is also experienced in working with multiple stakeholders, including government agencies, contractors, and subcontractors, to ensure that each project is executed efficiently and effectively.
+            </p>
+            <p>
+              At High-Linear Civil Private Limited, we believe in using the latest technology and tools to enhance our government contracts services. We leverage cutting-edge software and equipment to ensure that each project is delivered on time, within budget, and to the highest quality standards.
+            </p>
+            <p className="border-l-2 border-[#d4af37] pl-6 italic text-gray-400 my-10">
+              If you are looking for a reliable partner for your government contracts projects, look no further than High-Linear Civil Private Limited. Contact us today to learn more about our services and how we can help you achieve your goals.
+            </p>
+          </div>
+          
+          <div className="lg:col-span-5 relative">
+            <div className="sticky top-32 bg-white/5 p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl overflow-hidden group">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#d4af37]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none transition-transform duration-700 group-hover:scale-150"></div>
+              <h3 className="text-2xl font-light tracking-tight text-white mb-8 uppercase flex items-center gap-4 relative z-10">
+                <span className="text-[#d4af37]">Why Choose Us</span>
+              </h3>
+              <ul className="space-y-6 relative z-10">
+                <li className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-full bg-[#d4af37]/20 flex items-center justify-center text-[#d4af37] shrink-0 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium uppercase tracking-wider text-sm mb-1">Unmatched Compliance</h4>
+                    <p className="text-gray-400 text-sm font-light leading-relaxed">Deep understanding of strict federal and municipal regulations.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-full bg-[#d4af37]/20 flex items-center justify-center text-[#d4af37] shrink-0 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium uppercase tracking-wider text-sm mb-1">Cutting-Edge Tech</h4>
+                    <p className="text-gray-400 text-sm font-light leading-relaxed">Leveraging the latest software and equipment for precision and speed.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-full bg-[#d4af37]/20 flex items-center justify-center text-[#d4af37] shrink-0 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium uppercase tracking-wider text-sm mb-1">End-to-End Solutions</h4>
+                    <p className="text-gray-400 text-sm font-light leading-relaxed">From design and engineering to post-construction support.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Tenders Services Grid */}
+        <div>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-light tracking-tighter uppercase mb-6">Our Government Tenders Services</h2>
+            <div className="w-24 h-1 bg-[#d4af37] mx-auto rounded-full blur-[1px]"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <ServiceCard 
+              title="Bid Preparation"
+              shortDesc="We offer comprehensive bid preparation and submission services for government tenders."
+              longDesc="Our team of experts has extensive experience in preparing winning bids for a variety of government contracts, from small-scale projects to multi-million dollar initiatives. We handle all the intricate paperwork and compliance checks."
+              imageSrc="https://horizon-grove.vercel.app/_next/static/media/features_center.8d4e08ae.png"
+            />
+            
+            <ServiceCard 
+              title="Compliance Consulting"
+              shortDesc="Navigating the complex landscape of government regulations smoothly and effectively."
+              longDesc="We offer comprehensive bid preparation and submission services for government tenders. Our team of experts has extensive experience in preparing winning bids for a variety of government contracts, ensuring every detail aligns with local and federal laws."
+              imageSrc="https://horizon-grove.vercel.app/_next/static/media/hillside-complex.0fe20f82.png"
+            />
+            
+            <ServiceCard 
+              title="Project Management"
+              shortDesc="Comprehensive project management services tailored exclusively for government tenders."
+              longDesc="We understand that successful project management is critical to the success of any government contract, and our team is committed to ensuring that each project is executed with the highest standards of quality, safety, and efficiency."
+              imageSrc="https://horizon-grove.vercel.app/_next/static/media/detail-misty.da69f4f9.png"
+            />
+            
+            <ServiceCard 
+              title="Safety Management"
+              shortDesc="Ensuring that every project we undertake is executed with the highest standards of safety."
+              longDesc="At High-Linear, we understand the importance of safety in any construction project, especially those for government agencies. That's why we offer comprehensive safety management services to ensure 100% compliance with OSHA and local safety standards."
+              imageSrc="https://horizon-grove.vercel.app/_next/static/media/amenity_store_thumb.a26ee414.png"
+            />
+            
+            <ServiceCard 
+              title="Quality Assurance"
+              shortDesc="A robust quality management system in place to ensure that each project meets required standards."
+              longDesc="At High-Linear Civil Private Limited, we understand the importance of quality assurance and control in government contracts. We implement rigorous testing, regular site audits, and strict material inspections to guarantee a world-class final product."
+              imageSrc="https://horizon-grove.vercel.app/_next/static/media/hallway-thumb.fadc9be6.png"
+            />
+          </div>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <div 
+        className="w-full mt-auto bg-[#0d0d0d]"
+        dangerouslySetInnerHTML={{ __html: footerHtml }} 
+      />
+    </div>
+  );
+}
 
 function CompanyOverview() {
   useEffect(() => {
@@ -432,7 +621,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (currentHash === '#company-overview' || currentHash === '#mission-vision') return;
+    if (currentHash === '#company-overview' || currentHash === '#mission-vision' || currentHash === '#govt-contracts') return;
 
     const container = document.querySelector('.exact-copy-container');
     if (!container) return;
@@ -470,6 +659,10 @@ function App() {
   
   if (currentHash === '#mission-vision') {
     return <MissionVision />;
+  }
+  
+  if (currentHash === '#govt-contracts') {
+    return <GovtContracts />;
   }
 
   return (
