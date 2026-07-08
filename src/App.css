@@ -4,11 +4,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Reset some base styles */
 * {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.custom-marquee {
+  display: flex !important;
+  width: max-content !important;
+  flex-shrink: 0 !important;
+  animation: marquee 25s linear infinite !important;
 }

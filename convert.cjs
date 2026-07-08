@@ -90,10 +90,10 @@ bodyContent = bodyContent.replace(
 // Specifically update the welcome subtext
 bodyContent = bodyContent.replace(/A unique space where modern design meets unparalleled convenience, offering a lifestyle beyond expectations./g, 'We create unique spaces where modern design meets unparalleled convenience, offering a lifestyle beyond expectations.');
 
-// Directly inject CSS class and width into the marquee wrapper in HTML
+// FIX MARQUEE ONCE AND FOR ALL
 bodyContent = bodyContent.replace(
   /<div class="flex w-full whitespace-nowrap overflow-hidden">/g, 
-  '<div class="flex w-max whitespace-nowrap overflow-hidden animate-marquee">'
+  '<div class="custom-marquee" style="display:flex; width:max-content; flex-shrink:0; animation:marquee 30s linear infinite; -webkit-transform:translate3d(0,0,0);">'
 );
 
 // Remove the small overlapping text: "Residence San Cassiano / 2025"
@@ -183,4 +183,4 @@ export default App;
 `;
 
 fs.writeFileSync(path.join(__dirname, 'src', 'App.jsx'), appJsx);
-console.log("App.jsx has been updated with real exact match for stats numbers!");
+console.log("App.jsx has been updated with robust marquee!");
