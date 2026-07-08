@@ -46,6 +46,9 @@ bodyContent = bodyContent.replace(
   'Highlinear Group is a premier real estate development firm — <br/>dedicated to crafting visionary spaces, defined by innovative design and uncompromising quality. <br/>We build the foundations for extraordinary living and sustainable futures.'
 );
 
+// Update tags
+bodyContent = bodyContent.replace(/>Nature Inspired</gi, '>CONSTRUCTION<');
+
 // Add scroll animation to the "SPACE THAT INSPIRES" brackets
 bodyContent = bodyContent.replace(
   /<div class="absolute h-\[60vh\] border-l border-t border-b border-white w-12 opacity-80" style="right:20%"><\/div>/g,
@@ -152,4 +155,4 @@ export default App;
 `;
 
 fs.writeFileSync(path.join(__dirname, 'src', 'App.jsx'), appJsx);
-console.log("App.jsx has been updated to rewrite About section!");
+console.log("App.jsx has been updated with CONSTRUCTION tag!");
