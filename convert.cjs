@@ -41,11 +41,12 @@ bodyContent = bodyContent.replace(
   '<div class="flex w-max whitespace-nowrap overflow-hidden animate-marquee">'
 );
 
-// Replace the giant "HORIZON GROVE" text with the HIGHLINEAR.png logo
+// Replace the HORIZON letters in the footer with HIGHLINEAR.png
 bodyContent = bodyContent.replace(
-  /<div class="absolute inset-0 flex flex-col pt-16 md:pt-20 px-6 md:px-12 w-full gap-8 z-\[10\] pointer-events-none">[\s\S]*?(?=<div class="absolute inset-0 z-\[20\] pointer-events-none select-none">)/,
-  '<div class="absolute inset-0 flex items-center justify-center pt-16 md:pt-20 px-6 md:px-12 w-full z-[10] pointer-events-none"><img src="/HIGHLINEAR.png" class="w-full max-w-4xl md:max-w-6xl object-contain drop-shadow-2xl" style="opacity:0;transform:translateY(20px)" /></div>'
+  /<div class="relative overflow-hidden h-\[13vw\]"><h1 class="text-\[14vw\][\s\S]*?<\/h1><\/div>/,
+  '<div class="relative overflow-hidden flex justify-center py-12"><img src="/HIGHLINEAR.png" class="w-full max-w-4xl object-contain drop-shadow-2xl" /></div>'
 );
+
 
 const appJsx = `
 import React, { useEffect } from 'react';
@@ -97,4 +98,4 @@ export default App;
 `;
 
 fs.writeFileSync(path.join(__dirname, 'src', 'App.jsx'), appJsx);
-console.log("App.jsx has been updated with the HIGHLINEAR.png image logo!");
+console.log("App.jsx has been updated with footer logo!");
