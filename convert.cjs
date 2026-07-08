@@ -39,12 +39,19 @@ bodyContent = bodyContent.replace(/welcome to <br\/>Horizon Grove/g, 'welcome to
 bodyContent = bodyContent.replace(/A Home Designed For <br\/> Those Who Seek <br\/> More\./gi, 'Homes Designed For <br/> Those Who Seek <br/> More.');
 bodyContent = bodyContent.replace(/A home designed <br\/> for those who <br\/> seek more/gi, 'Homes designed <br/> for those who <br/> seek more');
 
-// Update the About section
-bodyContent = bodyContent.replace(/\[ About the project \]/gi, '[ About the company ]');
-bodyContent = bodyContent.replace(
-  /A new era of residential living — <br\/>immersed in nature, defined by clean architecture and quiet sophistication\. <br\/>(?:Horizon Grove|Highlinear Group) creates a seamless dialogue between architecture and environment\./gi,
-  'Highlinear Group is a premier real estate development firm — <br/>dedicated to crafting visionary spaces, defined by innovative design and uncompromising quality. <br/>We build the foundations for extraordinary living and sustainable futures.'
-);
+// Update the About section (using exact strings from content.md to guarantee match)
+bodyContent = bodyContent.replace('[ About the project ]', '[ About our company ]');
+
+const oldTextP1 = 'A new era of residential living — <br/>immersed in nature, defined by clean architecture and quiet sophistication.';
+const oldTextP2 = '<br/>Horizon Grove creates a seamless dialogue between architecture and environment.';
+const oldTextP3 = '<br/>Highlinear Group creates a seamless dialogue between architecture and environment.';
+
+const newTextP1 = 'Highlinear Group is a premier real estate development firm — <br/>dedicated to crafting visionary spaces, defined by innovative design and uncompromising quality.';
+const newTextP2 = '<br/>We build the foundations for extraordinary living and sustainable futures.';
+
+bodyContent = bodyContent.replace(oldTextP1, newTextP1);
+bodyContent = bodyContent.replace(oldTextP2, newTextP2);
+bodyContent = bodyContent.replace(oldTextP3, newTextP2); // in case it was already replaced by a generic replace above
 
 // Update tags
 bodyContent = bodyContent.replace(/>Nature Inspired</gi, '>CONSTRUCTION<');
@@ -155,4 +162,4 @@ export default App;
 `;
 
 fs.writeFileSync(path.join(__dirname, 'src', 'App.jsx'), appJsx);
-console.log("App.jsx has been updated with CONSTRUCTION tag!");
+console.log("App.jsx has been updated with explicit raw string replacements for About section!");
