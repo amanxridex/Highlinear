@@ -39,6 +39,12 @@ bodyContent = bodyContent.replace(/welcome to <br\/>Horizon Grove/g, 'welcome to
 bodyContent = bodyContent.replace(/Horizon Grove/g, 'Highlinear Group');
 bodyContent = bodyContent.replace(/horizon grove/g, 'highlinear group');
 
+// Update Metrics
+bodyContent = bodyContent.replace(/CONSTRUCTION PROGRESS/gi, 'ONGOING PROJECTS');
+bodyContent = bodyContent.replace(/60%/g, '7+');
+bodyContent = bodyContent.replace(/APARTMENTS SOLD/gi, 'APARTMENTS SOLD');
+bodyContent = bodyContent.replace(/70%/g, '400+');
+
 // Update Founder name
 bodyContent = bodyContent.replace(/Lucas Meyer/gi, 'Malvinder Singh Chauhan');
 
