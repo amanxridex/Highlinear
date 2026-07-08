@@ -202,6 +202,13 @@ let headerHtml = desktopNavMatch ? desktopNavMatch[0].replace(/style="[^"]*"/g, 
 const footerMatch = bodyContent.match(/<footer[^>]*>[\s\S]*?<\/footer>/i);
 let footerHtml = footerMatch ? footerMatch[0] : '';
 
+// Extract Header and Footer for use in CompanyOverview
+const desktopNavMatch = bodyContent.match(/<nav class="relative z-\[40\][^>]*>[\s\S]*?<\/nav>/i);
+let headerHtml = desktopNavMatch ? desktopNavMatch[0].replace(/style="[^"]*"/g, 'style="opacity:1;transform:translateY(0)"') : '';
+
+const footerMatch = bodyContent.match(/<footer[^>]*>[\s\S]*?<\/footer>/i);
+let footerHtml = footerMatch ? footerMatch[0] : '';
+
 const appJsx = `
 import React, { useEffect, useState } from 'react';
 import './App.css';
@@ -297,6 +304,121 @@ function CompanyOverview() {
   );
 }
 
+function MissionVision() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <div className="bg-[#0d0d0d] text-white min-h-screen font-sans flex flex-col relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#d4af37]/5 via-transparent to-transparent pointer-events-none z-0"></div>
+
+      {/* Header */}
+      <div 
+        className="w-full bg-[#0d0d0d] border-b border-white/10 sticky top-0 z-[100]" 
+        dangerouslySetInnerHTML={{ __html: headerHtml }} 
+      />
+
+      <main className="flex-1 w-full max-w-7xl mx-auto px-6 md:px-12 py-24 relative z-10">
+        <div className="mb-12">
+          <a href="#" className="inline-flex items-center gap-2 text-sm text-[#d4af37] hover:text-white transition-colors uppercase tracking-widest font-medium border border-[#d4af37]/30 hover:border-white/50 px-4 py-2 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            Back to Home
+          </a>
+        </div>
+
+        <div className="text-center mb-24">
+          <h1 className="text-5xl md:text-7xl font-light tracking-tighter uppercase mb-8">Mission & Vision</h1>
+          <div className="w-24 h-1 bg-[#d4af37] mx-auto rounded-full blur-[1px]"></div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-stretch mb-32">
+          {/* Mission Card */}
+          <div className="bg-white/5 border border-white/10 p-10 md:p-16 rounded-3xl relative overflow-hidden group hover:bg-white/10 transition-colors duration-500 shadow-2xl">
+            <div className="absolute -top-10 -right-10 text-[12rem] font-serif italic text-white/5 group-hover:text-white/10 transition-colors pointer-events-none leading-none">M</div>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-white mb-8 uppercase flex items-center gap-4 relative z-10">
+              <span className="w-12 h-[1px] bg-[#d4af37]"></span> Our Mission
+            </h2>
+            <div className="space-y-6 text-gray-300 font-light leading-relaxed text-lg relative z-10">
+              <p>
+                High-Linear Civil Private Limited’s mission is to deliver high-quality construction services that meet the needs and expectations of its clients. The company strives to provide innovative and cost-effective solutions while maintaining the highest standards of safety and quality.
+              </p>
+              <p>
+                We are dedicated to forging lasting relationships with our stakeholders by adhering to transparent practices, respecting strict timelines, and fostering a culture where precision meets passion in every brick we lay.
+              </p>
+            </div>
+          </div>
+          
+          {/* Vision Card */}
+          <div className="bg-white/5 border border-white/10 p-10 md:p-16 rounded-3xl relative overflow-hidden group hover:bg-white/10 transition-colors duration-500 shadow-2xl">
+            <div className="absolute -bottom-10 -right-10 text-[12rem] font-serif italic text-white/5 group-hover:text-white/10 transition-colors pointer-events-none leading-none">V</div>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-white mb-8 uppercase flex items-center gap-4 relative z-10">
+              <span className="w-12 h-[1px] bg-[#d4af37]"></span> Our Vision
+            </h2>
+            <div className="space-y-6 text-gray-300 font-light leading-relaxed text-lg relative z-10">
+              <p>
+                High-Linear Civil Private Limited’s vision is to become a leading construction company in India, known for its excellence in delivering world-class projects that transform communities and enhance the quality of life. 
+              </p>
+              <p>
+                The company aims to achieve this by leveraging its expertise, experience, and resources to provide exceptional service and value to its clients. High-Linear Civil Private Limited also aims to be a socially responsible and environmentally conscious organization, contributing to the sustainable development of the communities it serves.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Added Section: Core Values */}
+        <div className="mt-12">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-light tracking-tighter uppercase mb-6">Our Core Values</h2>
+            <p className="text-gray-400 font-light max-w-2xl mx-auto text-lg">The foundational principles that guide every project, team member, and decision at High-Linear Group.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="border border-white/10 p-8 rounded-2xl hover:border-[#d4af37]/50 transition-colors">
+              <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 text-[#d4af37]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3 className="text-xl font-medium tracking-tight uppercase mb-4">Safety First</h3>
+              <p className="text-gray-400 text-sm font-light leading-relaxed">We maintain an uncompromised commitment to the health and safety of our workforce and the public in every phase of construction.</p>
+            </div>
+            
+            <div className="border border-white/10 p-8 rounded-2xl hover:border-[#d4af37]/50 transition-colors">
+              <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 text-[#d4af37]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              </div>
+              <h3 className="text-xl font-medium tracking-tight uppercase mb-4">Integrity</h3>
+              <p className="text-gray-400 text-sm font-light leading-relaxed">Operating with transparency and honesty, we build not just structures, but lasting trust with our clients and partners.</p>
+            </div>
+            
+            <div className="border border-white/10 p-8 rounded-2xl hover:border-[#d4af37]/50 transition-colors">
+              <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 text-[#d4af37]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <h3 className="text-xl font-medium tracking-tight uppercase mb-4">Excellence</h3>
+              <p className="text-gray-400 text-sm font-light leading-relaxed">We constantly innovate and apply the highest engineering standards to ensure our final product stands the test of time.</p>
+            </div>
+            
+            <div className="border border-white/10 p-8 rounded-2xl hover:border-[#d4af37]/50 transition-colors">
+              <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 text-[#d4af37]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/></svg>
+              </div>
+              <h3 className="text-xl font-medium tracking-tight uppercase mb-4">Sustainability</h3>
+              <p className="text-gray-400 text-sm font-light leading-relaxed">Dedicated to green building practices, we aim to minimize our ecological footprint and promote environmental longevity.</p>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <div 
+        className="w-full mt-auto bg-[#0d0d0d]"
+        dangerouslySetInnerHTML={{ __html: footerHtml }} 
+      />
+    </div>
+  );
+}
+
 function App() {
   const [currentHash, setCurrentHash] = useState(window.location.hash);
 
@@ -310,7 +432,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (currentHash === '#company-overview') return;
+    if (currentHash === '#company-overview' || currentHash === '#mission-vision') return;
 
     const container = document.querySelector('.exact-copy-container');
     if (!container) return;
@@ -344,6 +466,10 @@ function App() {
 
   if (currentHash === '#company-overview') {
     return <CompanyOverview />;
+  }
+  
+  if (currentHash === '#mission-vision') {
+    return <MissionVision />;
   }
 
   return (
