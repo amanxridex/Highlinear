@@ -44,12 +44,18 @@ bodyContent = bodyContent.replace(
   '<div class="flex w-max whitespace-nowrap overflow-hidden animate-marquee">'
 );
 
-// We revert the HIGHLINEAR GROUP hero text replacement back to HORIZON GROVE as requested.
-
 // Remove the small overlapping text: "Residence San Cassiano / 2025"
 bodyContent = bodyContent.replace(
   /<div class="hidden md:flex gap-12 text-\[10px\] md:text-xs text-white\/70 uppercase tracking-widest pl-1" style="opacity:0"><span>Residence<\/span><span>San Cassiano<\/span><span>\/ 2025<\/span><\/div>/g,
   ''
+);
+
+// Replace HORIZON letters in hero with HIGHLINEAR (global replace for duplicate layers)
+const highlinearSpans = "HIGHLINEAR".split('').map(letter => `<span class="text-[15vw] md:text-[11vw] font-normal tracking-tighter uppercase font-sans">${letter}</span>`).join('');
+const horizonRegex = /<div class="flex items-end justify-start -ml-\[1%\] leading-none" style="opacity:0;transform:translateX\(60vw\)"><span class="text-\[19vw\].*?<\/div>/g;
+bodyContent = bodyContent.replace(
+  horizonRegex, 
+  `<div class="flex items-end justify-start -ml-[1%] leading-none" style="opacity:0;transform:translateX(60vw)">${highlinearSpans}</div>`
 );
 
 // Replace the HORIZON letters in the footer with HIGHLINEAR.png
@@ -108,4 +114,4 @@ export default App;
 `;
 
 fs.writeFileSync(path.join(__dirname, 'src', 'App.jsx'), appJsx);
-console.log("App.jsx has been updated to remove the overlapping small text!");
+console.log("App.jsx has been updated to change HORIZON to HIGHLINEAR in the hero!");
