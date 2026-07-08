@@ -51,6 +51,11 @@ bodyContent = bodyContent.replace(
   '<div class="flex flex-col md:flex-row gap-2 text-center md:text-left"><span>Copyright &copy; 2023 High-Linear Civil Private Limited. All Rights Reserved</span><span class="hidden md:block">|</span><span class="text-gray-500">Designed by <a href="https://amanmishra.work" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">amanmishra.work</a></span></div>'
 );
 
+// Update Header Navigation Menu
+const oldNav = '<ul class="hidden md:flex gap-8 text-xs uppercase tracking-widest font-medium"><li><a href="#about" class="hover:opacity-100 opacity-70 cursor-pointer transition-opacity">About</a></li><li><a href="#features" class="hover:opacity-100 opacity-70 cursor-pointer transition-opacity">Features</a></li><li><a href="#ready-to-move" class="hover:opacity-100 opacity-70 cursor-pointer transition-opacity">Offers</a></li><li><a href="#apartments" class="hover:opacity-100 opacity-70 cursor-pointer transition-opacity">Apartments</a></li></ul>';
+const newNav = '<ul class="hidden md:flex gap-8 text-xs uppercase tracking-widest font-medium items-center"><li><a href="#about" class="hover:opacity-100 opacity-70 cursor-pointer transition-opacity">About Us</a></li><li><a href="#services" class="hover:opacity-100 opacity-70 cursor-pointer transition-opacity">Our Services</a></li><li><a href="#projects" class="hover:opacity-100 opacity-70 cursor-pointer transition-opacity">Our Projects</a></li><li><a href="#construction" class="hover:opacity-100 opacity-100 cursor-pointer transition-all border border-white/20 hover:border-white/50 hover:bg-white/5 px-4 py-2 rounded-full font-bold">Construction Work</a></li></ul>';
+bodyContent = bodyContent.replace(oldNav, newNav);
+
 // Update Stats Cards - EXACT STRING REPLACEMENT
 bodyContent = bodyContent.replace(
   'Experience In Real Estate</div><div class="flex justify-between items-end"><span class="text-5xl font-light tracking-tight flex"><span>0</span>+</span>',
@@ -192,4 +197,4 @@ export default App;
 `;
 
 fs.writeFileSync(path.join(__dirname, 'src', 'App.jsx'), appJsx);
-console.log("App.jsx has been updated with footer changes!");
+console.log("App.jsx has been updated with header navigation changes!");
