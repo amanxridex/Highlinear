@@ -7,16 +7,19 @@ const Hero = () => {
   return (
     <section className="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background Video */}
-      <div className="absolute inset-0 w-full h-full z-0">
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
         <div className="absolute inset-0 bg-black/60 z-10"></div>
-        <video 
-          src="https://media.gettyimages.com/id/2149833172/video/architects-analyzing-blueprint-in-building-under-construction.mp4?s=mp4-640x640-gi&k=20&c=StHNJ-aitVv3uhlvZhJngZp85F9Zr-JSlcNpNbOSU4A=" 
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover scale-105"
-        />
+        {/* YouTube Video Background wrapper */}
+        <div className="absolute w-[300vw] h-[300vh] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none">
+          <iframe 
+            src="https://www.youtube.com/embed/4BzjUq921Y4?autoplay=1&mute=1&controls=0&loop=1&playlist=4BzjUq921Y4&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&vq=hd1080" 
+            title="Hero Video Background"
+            className="absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowFullScreen
+            style={{ border: 'none' }}
+          ></iframe>
+        </div>
       </div>
 
       {/* Content */}
