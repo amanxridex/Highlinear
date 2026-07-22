@@ -118,8 +118,8 @@ function App() {
               playsInline
               className="w-full h-[300px] md:h-[400px] object-cover drop-shadow-2xl rounded-[2.5rem]"
             />
-            {/* Floating Badge Inside Video */}
-            <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 bg-white/95 backdrop-blur-sm px-6 md:px-8 py-3 md:py-4 rounded-full shadow-2xl flex items-center gap-4 border border-white/20">
+            {/* Floating Badge */}
+            <div className="absolute bottom-8 -left-6 md:bottom-12 md:-left-12 bg-white/95 backdrop-blur-sm px-6 md:px-8 py-3 md:py-4 rounded-full shadow-2xl flex items-center gap-4 border border-white/20">
                <div className="w-10 h-10 rounded-full bg-[#FF5722] text-white flex items-center justify-center font-bold">
                  ★
                </div>
