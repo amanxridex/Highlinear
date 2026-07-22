@@ -2,9 +2,9 @@ import React from 'react';
 
 function App() {
   return (
-    <div className="min-h-screen w-full bg-[#FDFBF7] text-[#1C1C1C] flex flex-col font-sans overflow-x-hidden">
+    <div className="min-h-screen w-full bg-[#0F0F11] text-white flex flex-col font-sans overflow-x-hidden">
       {/* Navigation Bar */}
-      <nav className="w-full flex items-center justify-between px-6 md:px-12 py-6 bg-white shadow-sm z-50 sticky top-0">
+      <nav className="w-full flex items-center justify-between px-6 md:px-12 py-6 bg-[#0F0F11]/80 backdrop-blur-md shadow-sm z-50 sticky top-0 border-b border-white/5">
         <div className="flex items-center gap-12">
           {/* Logo */}
           <a href="#" className="flex items-center">
@@ -29,8 +29,8 @@ function App() {
         {/* Right Nav */}
         <div className="flex items-center gap-6">
           <div className="hidden md:block text-sm font-medium">
-            <span className="text-gray-500">Call Us: </span>
-            <span>+(084) 123 - 456 88</span>
+            <span className="text-gray-400">Call Us: </span>
+            <span className="text-white">+(084) 123 - 456 88</span>
           </div>
           <button className="bg-[#d4af37] text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-black transition-colors shadow-md">
             Get In Touch
@@ -53,16 +53,16 @@ function App() {
         {/* Right Content Panel */}
         <div className="w-full lg:w-[55%] h-full flex flex-col justify-center px-4 lg:px-16 py-12 relative">
           <div className="max-w-2xl">
-            <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[1.05] tracking-tight mb-8 text-black">
+            <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[1.05] tracking-tight mb-8 text-white">
               A new<br />standard of<br />excellence
             </h1>
             
-            <p className="text-gray-600 text-lg md:text-xl font-medium max-w-md mb-12 leading-relaxed">
+            <p className="text-gray-400 text-lg md:text-xl font-medium max-w-md mb-12 leading-relaxed">
               The premier civil construction firm specializing in government contracts and infrastructure worldwide.
             </p>
             
             <a href="#services" className="inline-flex items-center gap-4 group cursor-pointer">
-              <div className="bg-white px-6 py-3 rounded-full shadow-sm border border-gray-100 font-medium text-sm group-hover:shadow-md transition-all">
+              <div className="bg-[#1A1A1D] px-6 py-3 rounded-full border border-white/10 font-medium text-sm group-hover:border-[#d4af37]/50 group-hover:shadow-md transition-all">
                 View All Services
               </div>
               <div className="w-12 h-12 rounded-full bg-[#d4af37] flex items-center justify-center text-white group-hover:bg-black transition-colors shadow-md">
@@ -82,7 +82,7 @@ function App() {
                 <div className="absolute inset-0 bg-[#d4af37] rounded-full opacity-30 -translate-x-2"></div>
                 <span className="text-5xl font-bold relative z-10">40</span>
               </div>
-              <div className="font-semibold text-sm leading-tight text-gray-800">
+              <div className="font-semibold text-sm leading-tight text-gray-300">
                 years of<br />experiences
               </div>
             </div>
@@ -109,7 +109,7 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="w-full py-24 px-6 md:px-12 bg-white">
+      <section id="about" className="w-full py-24 px-6 md:px-12 bg-[#0F0F11]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div className="relative">
             <div className="rounded-[2rem] overflow-hidden shadow-2xl">
@@ -130,13 +130,13 @@ function App() {
               <span className="uppercase tracking-widest text-sm font-bold text-[#d4af37]">About Highlinear</span>
             </div>
             <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">We build the foundation of tomorrow</h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
+            <p className="text-gray-400 text-lg leading-relaxed mb-6">
               High-Linear Civil Private Limited is a trusted provider of construction services for government contracts, commercial infrastructure, and premium interior design. 
             </p>
-            <p className="text-gray-600 text-lg leading-relaxed mb-10">
+            <p className="text-gray-400 text-lg leading-relaxed mb-10">
               Our team has extensive experience working with government entities, and we understand the unique challenges that these projects can present. We are well-versed in regulatory and compliance requirements, ensuring that each project is executed efficiently and effectively.
             </p>
-            <button className="bg-black text-white px-8 py-4 rounded-full font-medium hover:bg-[#d4af37] transition-colors inline-flex items-center gap-3">
+            <button className="bg-white text-black px-8 py-4 rounded-full font-medium hover:bg-[#d4af37] hover:text-white transition-colors inline-flex items-center gap-3">
               Learn More About Us
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </button>
@@ -145,7 +145,7 @@ function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="w-full py-24 px-6 md:px-12 bg-[#FDFBF7]">
+      <section id="services" className="w-full py-24 px-6 md:px-12 bg-[#1A1A1D]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -158,45 +158,45 @@ function App() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Service 1 */}
-            <div className="bg-white p-10 rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow group border border-gray-100">
+            <div className="bg-[#0F0F11] p-10 rounded-[2rem] hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] transition-shadow group border border-white/5 hover:border-[#d4af37]/30">
               <div className="w-16 h-16 rounded-2xl bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37] mb-8 group-hover:scale-110 transition-transform">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
               </div>
               <h3 className="text-2xl font-bold mb-4">Government Contracts</h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
+              <p className="text-gray-400 leading-relaxed mb-6">
                 Specialized in executing complex public sector projects, ensuring strict adherence to regulations, budgets, and timelines for local and federal agencies.
               </p>
-              <a href="#" className="inline-flex items-center gap-2 text-black font-semibold group-hover:text-[#d4af37] transition-colors">
+              <a href="#" className="inline-flex items-center gap-2 text-white font-semibold group-hover:text-[#d4af37] transition-colors">
                 Read More
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </a>
             </div>
 
             {/* Service 2 */}
-            <div className="bg-white p-10 rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow group border border-gray-100">
+            <div className="bg-[#0F0F11] p-10 rounded-[2rem] hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] transition-shadow group border border-white/5 hover:border-[#d4af37]/30">
               <div className="w-16 h-16 rounded-2xl bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37] mb-8 group-hover:scale-110 transition-transform">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 22h20"/><path d="M17 2v20"/><path d="M7 2v20"/><path d="M17 6H7"/><path d="M17 10H7"/><path d="M17 14H7"/><path d="M17 18H7"/></svg>
               </div>
               <h3 className="text-2xl font-bold mb-4">Building Construction</h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
+              <p className="text-gray-400 leading-relaxed mb-6">
                 End-to-end commercial and residential construction services, utilizing cutting-edge technology and robust quality management systems.
               </p>
-              <a href="#" className="inline-flex items-center gap-2 text-black font-semibold group-hover:text-[#d4af37] transition-colors">
+              <a href="#" className="inline-flex items-center gap-2 text-white font-semibold group-hover:text-[#d4af37] transition-colors">
                 Read More
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </a>
             </div>
 
             {/* Service 3 */}
-            <div className="bg-white p-10 rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow group border border-gray-100">
+            <div className="bg-[#0F0F11] p-10 rounded-[2rem] hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] transition-shadow group border border-white/5 hover:border-[#d4af37]/30">
               <div className="w-16 h-16 rounded-2xl bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37] mb-8 group-hover:scale-110 transition-transform">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
               </div>
               <h3 className="text-2xl font-bold mb-4">Interior Designing</h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
+              <p className="text-gray-400 leading-relaxed mb-6">
                 Premium interior design solutions that blend aesthetics with functionality, creating spaces that inspire and elevate the human experience.
               </p>
-              <a href="#" className="inline-flex items-center gap-2 text-black font-semibold group-hover:text-[#d4af37] transition-colors">
+              <a href="#" className="inline-flex items-center gap-2 text-white font-semibold group-hover:text-[#d4af37] transition-colors">
                 Read More
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </a>
@@ -206,7 +206,7 @@ function App() {
       </section>
 
       {/* Featured Projects Section */}
-      <section id="projects" className="w-full py-24 px-6 md:px-12 bg-white">
+      <section id="projects" className="w-full py-24 px-6 md:px-12 bg-[#0F0F11]">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div>
@@ -216,7 +216,7 @@ function App() {
               </div>
               <h2 className="text-4xl md:text-5xl font-bold">Featured Projects</h2>
             </div>
-            <button className="bg-transparent border-2 border-black text-black px-8 py-3 rounded-full font-medium hover:bg-black hover:text-white transition-colors">
+            <button className="bg-transparent border-2 border-white/20 text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-black transition-colors">
               View All Projects
             </button>
           </div>
@@ -282,8 +282,8 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="w-full py-24 px-6 md:px-12 bg-[#FDFBF7]">
-        <div className="max-w-7xl mx-auto bg-white rounded-[3rem] shadow-xl overflow-hidden flex flex-col md:flex-row">
+      <section id="contact" className="w-full py-24 px-6 md:px-12 bg-[#1A1A1D]">
+        <div className="max-w-7xl mx-auto bg-[#0F0F11] rounded-[3rem] shadow-2xl overflow-hidden flex flex-col md:flex-row border border-white/5">
           <div className="w-full md:w-1/2 p-12 md:p-20 bg-black text-white relative overflow-hidden">
             <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-[#d4af37] rounded-full opacity-20 blur-3xl"></div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 relative z-10">Let's build something great together.</h2>
@@ -320,25 +320,25 @@ function App() {
             </div>
           </div>
           <div className="w-full md:w-1/2 p-12 md:p-20 flex flex-col justify-center">
-            <h3 className="text-3xl font-bold mb-8 text-black">Send a Message</h3>
+            <h3 className="text-3xl font-bold mb-8 text-white">Send a Message</h3>
             <form className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
-                  <input type="text" className="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#d4af37]/50 focus:border-[#d4af37] transition-all" placeholder="John" />
+                  <label className="block text-sm font-medium text-gray-400 mb-2">First Name</label>
+                  <input type="text" className="w-full bg-[#1A1A1D] border border-white/10 text-white rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#d4af37]/50 focus:border-[#d4af37] transition-all placeholder:text-gray-600" placeholder="John" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
-                  <input type="text" className="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#d4af37]/50 focus:border-[#d4af37] transition-all" placeholder="Doe" />
+                  <label className="block text-sm font-medium text-gray-400 mb-2">Last Name</label>
+                  <input type="text" className="w-full bg-[#1A1A1D] border border-white/10 text-white rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#d4af37]/50 focus:border-[#d4af37] transition-all placeholder:text-gray-600" placeholder="Doe" />
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                <input type="email" className="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#d4af37]/50 focus:border-[#d4af37] transition-all" placeholder="john@example.com" />
+                <label className="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+                <input type="email" className="w-full bg-[#1A1A1D] border border-white/10 text-white rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#d4af37]/50 focus:border-[#d4af37] transition-all placeholder:text-gray-600" placeholder="john@example.com" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                <textarea rows="4" className="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#d4af37]/50 focus:border-[#d4af37] transition-all" placeholder="Tell us about your project..."></textarea>
+                <label className="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                <textarea rows="4" className="w-full bg-[#1A1A1D] border border-white/10 text-white rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#d4af37]/50 focus:border-[#d4af37] transition-all placeholder:text-gray-600" placeholder="Tell us about your project..."></textarea>
               </div>
               <button type="button" className="w-full bg-[#d4af37] text-white rounded-xl px-4 py-4 font-bold text-lg hover:bg-black transition-colors shadow-lg shadow-[#d4af37]/30">
                 Submit Request
