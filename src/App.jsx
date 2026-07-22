@@ -52,12 +52,12 @@ function App() {
       {/* Navigation Bar */}
       <nav className="w-full flex items-center justify-between px-6 md:px-12 py-5 bg-white shadow-sm z-50 sticky top-0">
         {/* Logo */}
-        <div className="w-[200px]">
+        <div className="w-[250px]">
           <a href="#" className="flex items-center">
             <img 
               src="/HIGHLLINEAROFFLOGO.png" 
               alt="Highlinear Logo" 
-              className="h-10 md:h-12 object-contain"
+              className="h-14 md:h-16 object-contain"
             />
           </a>
         </div>
@@ -290,7 +290,7 @@ function App() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             <div className="md:col-span-1">
-              <img src="/HIGHLLINEAROFFLOGO.png" alt="Highlinear Logo" className="h-12 md:h-16 mb-8 object-contain" />
+              <img src="/HIGHLLINEAROFFLOGO.png" alt="Highlinear Logo" className="h-16 md:h-20 mb-8 object-contain" />
               <p className="text-gray-400 leading-relaxed text-sm">
                 Combining Craftsmanship with Innovation for Exceptional Results. We build the foundation of tomorrow.
               </p>
