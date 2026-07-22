@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linkedin } from 'lucide-react';
+import { Link as LinkIcon } from 'lucide-react';
 
 const LeadershipTeam = () => {
   const leaders = [
@@ -46,7 +46,7 @@ const LeadershipTeam = () => {
                 <img src={leader.image} alt={leader.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
                   <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#0A66C2] hover:bg-[#0A66C2] hover:text-white transition-colors">
-                    <Linkedin size={20} />
+                    <LinkIcon size={20} />
                   </a>
                 </div>
               </div>
