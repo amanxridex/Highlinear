@@ -115,10 +115,10 @@ function App() {
             loop
             muted
             playsInline
-            className="w-full max-w-lg object-cover drop-shadow-2xl rounded-3xl"
+            className="w-full max-w-3xl xl:max-w-4xl h-[400px] md:h-[550px] object-cover drop-shadow-2xl rounded-[2.5rem]"
           />
           {/* Floating Badge */}
-          <div className="absolute top-1/3 -left-8 bg-white px-6 py-3 rounded-full shadow-xl flex items-center gap-3">
+          <div className="absolute top-1/2 -translate-y-1/2 -left-12 lg:-left-24 bg-white px-6 md:px-8 py-4 rounded-full shadow-2xl flex items-center gap-4 border border-orange-50">
              <div className="w-10 h-10 rounded-full bg-[#FF5722] text-white flex items-center justify-center font-bold">
                ★
              </div>
