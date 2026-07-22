@@ -109,10 +109,13 @@ function App() {
 
         {/* Right Image/Worker */}
         <div className="w-full lg:w-1/2 relative z-10 mt-12 lg:mt-0 flex justify-center lg:justify-end">
-          <img 
-            src="https://media.istockphoto.com/id/1911777007/photo/team-of-construction-engineers-wearing-vest-and-helmet-safety-discussing-project-at.jpg?s=612x612&w=0&k=20&c=vTTKve1PfollEhw6K6ncM1eQYevHFeX1wRqiGv9uG18=" 
-            alt="Construction Worker" 
-            className="w-full max-w-lg object-contain drop-shadow-2xl rounded-3xl"
+          <video 
+            src="https://media.gettyimages.com/id/2188908764/video/t-l-drone-point-view-of-workers-working-on-construction-site-hangzhou-china.mp4?s=mp4-640x640-gi&k=20&c=6VO9azrwDpbpvEfl8udIbwiQJL54LTrZg3Mm5iYxCqw=" 
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full max-w-lg object-cover drop-shadow-2xl rounded-3xl"
           />
           {/* Floating Badge */}
           <div className="absolute top-1/3 -left-8 bg-white px-6 py-3 rounded-full shadow-xl flex items-center gap-3">
