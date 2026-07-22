@@ -46,9 +46,9 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-4xl"
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6 flex flex-wrap">
-            <span className="mr-3">Building India's Future,</span>
-            <span className="text-[#FF5722] relative inline-block min-w-[200px] h-[1.2em]">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6 flex flex-col items-start">
+            <span>Building India's Future,</span>
+            <span className="text-[#FF5722] text-3xl md:text-4xl lg:text-5xl mt-2 relative inline-block w-full h-[1.2em]">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={index}
@@ -56,7 +56,7 @@ const Hero = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5 }}
-                  className="absolute left-0"
+                  className="absolute left-0 whitespace-nowrap"
                 >
                   {phrases[index]}
                 </motion.span>
