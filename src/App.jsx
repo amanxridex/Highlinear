@@ -115,7 +115,7 @@ function App() {
             loop
             muted
             playsInline
-            className="w-full max-w-3xl xl:max-w-4xl h-[400px] md:h-[550px] object-cover drop-shadow-2xl rounded-[2.5rem]"
+            className="w-full max-w-3xl xl:max-w-4xl h-[300px] md:h-[400px] object-cover drop-shadow-2xl rounded-[2.5rem]"
           />
           {/* Floating Badge */}
           <div className="absolute top-1/2 -translate-y-1/2 -left-12 lg:-left-24 bg-white px-6 md:px-8 py-4 rounded-full shadow-2xl flex items-center gap-4 border border-orange-50">
