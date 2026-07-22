@@ -1,6 +1,22 @@
 import React from 'react';
 
 function App() {
+  const scrollRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      if (scrollRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          scrollRef.current.scrollBy({ left: 400, behavior: 'smooth' });
+        }
+      }
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="min-h-screen w-full bg-[#0F0F11] text-white flex flex-col font-sans overflow-x-hidden">
       {/* Navigation Bar */}
@@ -202,6 +218,41 @@ function App() {
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Auto-scroll Gallery Section */}
+      <section className="w-full py-16 bg-[#1A1A1D]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-8">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-12 h-[2px] bg-[#d4af37]"></div>
+            <span className="uppercase tracking-widest text-sm font-bold text-[#d4af37]">Gallery</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">Project Spotlights</h2>
+        </div>
+        <div 
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto snap-x snap-mandatory px-6 md:px-12 pb-8"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          <style>{`
+            div::-webkit-scrollbar {
+              display: none;
+            }
+          `}</style>
+          {[
+            "https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=800&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1481026469463-66327c86e544?q=80&w=800&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=800&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop"
+          ].map((src, i) => (
+            <div key={i} className="min-w-[85vw] md:min-w-[450px] h-[300px] md:h-[350px] rounded-[2rem] overflow-hidden snap-center shrink-0 shadow-lg border border-white/10 group cursor-pointer">
+              <img src={src} alt={`Gallery ${i}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+            </div>
+          ))}
         </div>
       </section>
 
