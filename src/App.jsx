@@ -21,17 +21,31 @@ function App() {
     <div className="min-h-screen w-full bg-[#FAFAFA] text-gray-900 flex flex-col font-sans overflow-x-hidden">
       
       {/* Top Bar Marquee */}
-      <div className="w-full bg-white border-b border-gray-100 overflow-hidden py-3 px-4 hidden md:block">
-        <div className="flex whitespace-nowrap text-xs font-medium justify-center">
-          <span className="text-[#FF5722] mx-2">Strengthening Communities</span>
-          <span className="text-gray-300 mx-2">|</span>
-          <span className="text-gray-500 mx-2">Transforming Lives with Excellence in Construction</span>
-          <span className="text-gray-300 mx-2">|</span>
-          <span className="text-gray-500 mx-2">Your Trusted Partner for Construction Excellence</span>
-          <span className="text-gray-300 mx-2">|</span>
-          <span className="text-[#FF5722] mx-2">Building Landmarks and Strengthening Communities</span>
-          <span className="text-gray-300 mx-2">|</span>
-          <span className="text-gray-500 mx-2">Transforming Lives</span>
+      <div className="w-full bg-white border-b border-gray-100 overflow-hidden py-3 px-4 hidden md:block relative">
+        <div className="flex whitespace-nowrap text-xs font-medium animate-marquee w-max">
+          {/* First Set */}
+          <span className="text-[#FF5722] mx-4">Strengthening Communities</span>
+          <span className="text-gray-300 mx-4">|</span>
+          <span className="text-gray-500 mx-4">Transforming Lives with Excellence in Construction</span>
+          <span className="text-gray-300 mx-4">|</span>
+          <span className="text-gray-500 mx-4">Your Trusted Partner for Construction Excellence</span>
+          <span className="text-gray-300 mx-4">|</span>
+          <span className="text-[#FF5722] mx-4">Building Landmarks and Strengthening Communities</span>
+          <span className="text-gray-300 mx-4">|</span>
+          <span className="text-gray-500 mx-4">Transforming Lives</span>
+          <span className="text-gray-300 mx-4">|</span>
+          
+          {/* Duplicate Set for Seamless Loop */}
+          <span className="text-[#FF5722] mx-4">Strengthening Communities</span>
+          <span className="text-gray-300 mx-4">|</span>
+          <span className="text-gray-500 mx-4">Transforming Lives with Excellence in Construction</span>
+          <span className="text-gray-300 mx-4">|</span>
+          <span className="text-gray-500 mx-4">Your Trusted Partner for Construction Excellence</span>
+          <span className="text-gray-300 mx-4">|</span>
+          <span className="text-[#FF5722] mx-4">Building Landmarks and Strengthening Communities</span>
+          <span className="text-gray-300 mx-4">|</span>
+          <span className="text-gray-500 mx-4">Transforming Lives</span>
+          <span className="text-gray-300 mx-4">|</span>
         </div>
       </div>
 
