@@ -41,7 +41,7 @@ const OurTeam = () => {
         <div className="md:w-1/2 relative w-full h-[500px]">
            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-500/20 via-transparent to-transparent"></div>
            <img 
-            src="https://images.unsplash.com/photo-1504307651254-35680f356f12?q=80&w=800&auto=format&fit=crop" 
+            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop" 
             alt="Engineering Team"
             className="w-full h-full object-cover rounded-[3rem] shadow-2xl relative z-10"
            />

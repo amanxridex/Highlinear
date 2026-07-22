@@ -20,7 +20,7 @@ const WhyChooseUs = () => {
         <div className="grid grid-cols-2 gap-4 relative">
           <div className="space-y-4 pt-12">
             <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=600&auto=format&fit=crop" className="rounded-[2rem] w-full h-64 object-cover" alt="Construction detail" />
-            <img src="https://images.unsplash.com/photo-1504307651254-35680f356f12?q=80&w=600&auto=format&fit=crop" className="rounded-[2rem] w-full h-48 object-cover" alt="Workers" />
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop" className="rounded-[2rem] w-full h-48 object-cover" alt="Workers" />
           </div>
           <div className="space-y-4">
             <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=600&auto=format&fit=crop" className="rounded-[2rem] w-full h-48 object-cover" alt="Architecture" />

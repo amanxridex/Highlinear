@@ -20,7 +20,7 @@ const ProjectGallery = () => {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden h-96 relative group cursor-pointer">
-              <img src="https://images.unsplash.com/photo-1504307651254-35680f356f12?q=80&w=600&auto=format&fit=crop" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Gallery" />
+              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Gallery" />
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <span className="text-white font-bold uppercase tracking-widest text-sm">View Project</span>
               </div>
