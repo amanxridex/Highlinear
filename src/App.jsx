@@ -108,24 +108,26 @@ function App() {
         </div>
 
         {/* Right Image/Worker */}
-        <div className="w-full lg:w-1/2 relative z-10 mt-12 lg:mt-0 flex justify-center lg:justify-end">
-          <video 
-            src="https://media.gettyimages.com/id/2149833172/video/architects-analyzing-blueprint-in-building-under-construction.mp4?s=mp4-640x640-gi&k=20&c=StHNJ-aitVv3uhlvZhJngZp85F9Zr-JSlcNpNbOSU4A=" 
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full max-w-3xl xl:max-w-4xl h-[300px] md:h-[400px] object-cover drop-shadow-2xl rounded-[2.5rem]"
-          />
-          {/* Floating Badge */}
-          <div className="absolute top-1/2 -translate-y-1/2 -left-12 lg:-left-24 bg-white px-6 md:px-8 py-4 rounded-full shadow-2xl flex items-center gap-4 border border-orange-50">
-             <div className="w-10 h-10 rounded-full bg-[#FF5722] text-white flex items-center justify-center font-bold">
-               ★
-             </div>
-             <div>
-               <div className="font-bold text-gray-900 text-lg">9,738+</div>
-               <div className="text-xs text-gray-500 font-medium">Total Buildings</div>
-             </div>
+        <div className="w-full lg:w-1/2 mt-12 lg:mt-0 flex justify-center lg:justify-end">
+          <div className="relative inline-block w-full max-w-3xl xl:max-w-4xl">
+            <video 
+              src="https://media.gettyimages.com/id/2149833172/video/architects-analyzing-blueprint-in-building-under-construction.mp4?s=mp4-640x640-gi&k=20&c=StHNJ-aitVv3uhlvZhJngZp85F9Zr-JSlcNpNbOSU4A=" 
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-[300px] md:h-[400px] object-cover drop-shadow-2xl rounded-[2.5rem]"
+            />
+            {/* Floating Badge Inside Video */}
+            <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 bg-white/95 backdrop-blur-sm px-6 md:px-8 py-3 md:py-4 rounded-full shadow-2xl flex items-center gap-4 border border-white/20">
+               <div className="w-10 h-10 rounded-full bg-[#FF5722] text-white flex items-center justify-center font-bold">
+                 ★
+               </div>
+               <div>
+                 <div className="font-bold text-gray-900 text-lg">9,738+</div>
+                 <div className="text-xs text-gray-500 font-medium">Total Buildings</div>
+               </div>
+            </div>
           </div>
         </div>
       </section>
