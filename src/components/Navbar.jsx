@@ -56,25 +56,63 @@ const Navbar = () => {
             <Link to="/projects" className="hover:text-[#FF5722] transition-colors flex items-center gap-1">
               Projects <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </Link>
-            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[600px] bg-white shadow-xl rounded-2xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-100 grid grid-cols-2 p-6 gap-x-8 gap-y-4 pointer-events-none group-hover:pointer-events-auto">
-              <div>
-                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4 border-b pb-2">Categories</h4>
-                <ul className="space-y-3">
-                  <li><Link to="/projects/residential" className="hover:text-[#FF5722] transition-colors block text-gray-600 hover:translate-x-1 transform duration-200">Residential</Link></li>
-                  <li><Link to="/projects/commercial" className="hover:text-[#FF5722] transition-colors block text-gray-600 hover:translate-x-1 transform duration-200">Commercial</Link></li>
-                  <li><Link to="/projects/industrial" className="hover:text-[#FF5722] transition-colors block text-gray-600 hover:translate-x-1 transform duration-200">Industrial</Link></li>
-                  <li><Link to="/projects/township" className="hover:text-[#FF5722] transition-colors block text-gray-600 hover:translate-x-1 transform duration-200">Township</Link></li>
+            {/* Mega Menu Dropdown */}
+            <div className="absolute top-full left-1/2 -translate-x-[60%] mt-0 w-[1000px] bg-white shadow-2xl rounded-2xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 grid grid-cols-4 pointer-events-none group-hover:pointer-events-auto">
+              
+              {/* Column 1: Categories */}
+              <div className="p-8 border-r border-gray-50 bg-gray-50/50">
+                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-5 border-b border-gray-200 pb-3">Categories</h4>
+                <ul className="space-y-3.5">
+                  {['Residential', 'Commercial', 'Industrial', 'Township', 'Infrastructure', 'Hospitality', 'Institutional', 'Mixed Use'].map((item) => (
+                    <li key={item}><Link to={`/projects/${item.toLowerCase().replace(' ', '-')}`} className="hover:text-[#FF5722] font-medium transition-colors block text-gray-700 hover:translate-x-1 transform duration-200">{item}</Link></li>
+                  ))}
                 </ul>
               </div>
-              <div>
-                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4 border-b pb-2">Specialized</h4>
-                <ul className="space-y-3">
-                  <li><Link to="/projects/villas" className="hover:text-[#FF5722] transition-colors block text-gray-600 hover:translate-x-1 transform duration-200">Villas</Link></li>
-                  <li><Link to="/projects/affordable-housing" className="hover:text-[#FF5722] transition-colors block text-gray-600 hover:translate-x-1 transform duration-200">Affordable Housing</Link></li>
-                  <li><Link to="/projects/luxury-housing" className="hover:text-[#FF5722] transition-colors block text-gray-600 hover:translate-x-1 transform duration-200">Luxury Housing</Link></li>
-                  <li><Link to="/projects/completed" className="hover:text-[#FF5722] font-bold transition-colors block text-gray-800 hover:translate-x-1 transform duration-200">View Completed Projects →</Link></li>
+
+              {/* Column 2: Specialized Projects */}
+              <div className="p-8 border-r border-gray-50">
+                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-5 border-b border-gray-200 pb-3">Specialized</h4>
+                <ul className="space-y-3.5">
+                  {['Luxury Villas', 'Affordable Housing', 'High-Rise Apartments', 'Gated Communities', 'Corporate Offices', 'Shopping Malls', 'Warehouses', 'Factories'].map((item) => (
+                    <li key={item}><Link to={`/projects/${item.toLowerCase().replace(' ', '-')}`} className="hover:text-[#FF5722] font-medium transition-colors block text-gray-700 hover:translate-x-1 transform duration-200">{item}</Link></li>
+                  ))}
                 </ul>
               </div>
+
+              {/* Column 3: Project Status */}
+              <div className="p-8 border-r border-gray-50 bg-gray-50/50">
+                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-5 border-b border-gray-200 pb-3">Project Status</h4>
+                <ul className="space-y-3.5">
+                  {['Ongoing Projects', 'Completed Projects', 'Upcoming Projects', 'Ready to Move', 'Recently Delivered'].map((item) => (
+                    <li key={item}><Link to={`/projects/${item.toLowerCase().replace(/ /g, '-')}`} className="hover:text-[#FF5722] font-medium transition-colors block text-gray-700 hover:translate-x-1 transform duration-200">{item}</Link></li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Column 4: Featured Project */}
+              <div className="p-8 flex flex-col">
+                <h4 className="text-xs font-bold text-[#FF5722] uppercase tracking-wider mb-5 border-b border-orange-100 pb-3">Featured Project</h4>
+                <div className="group/card block rounded-xl overflow-hidden relative flex-grow cursor-pointer">
+                  <div className="absolute inset-0 bg-black/40 group-hover/card:bg-black/20 transition-colors duration-300 z-10"></div>
+                  <img 
+                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop" 
+                    alt="Skyline Heights" 
+                    className="w-full h-full object-cover group-hover/card:scale-110 transition-transform duration-700 absolute inset-0"
+                  />
+                  <div className="absolute inset-0 z-20 p-5 flex flex-col justify-end">
+                    <span className="bg-[#FF5722] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded w-max mb-2">Premium Residential</span>
+                    <h5 className="text-white font-bold text-xl mb-1 drop-shadow-md">Skyline Heights</h5>
+                    <div className="flex items-center text-gray-200 text-xs mb-3 font-medium drop-shadow-md">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                      New Delhi
+                    </div>
+                    <Link to="/projects/skyline-heights" className="text-white text-sm font-bold flex items-center hover:text-orange-200 transition-colors w-max group-hover/card:translate-x-1 transform duration-300">
+                      View Project <span className="ml-1">→</span>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
 
