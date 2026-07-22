@@ -43,7 +43,7 @@ function App() {
         {/* Left Image Panel */}
         <div className="w-full lg:w-[45%] h-[50vh] lg:h-full rounded-[2rem] overflow-hidden relative shadow-lg">
           <img 
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvfrgZ7NW2Sih2K44L-UYH4twP0P_LjVw0RiMnUVClABduUtMZeSOkWxg&s=10" 
             alt="Modern Construction Building" 
             className="w-full h-full object-cover"
           />
