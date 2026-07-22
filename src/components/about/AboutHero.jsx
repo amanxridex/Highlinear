@@ -8,7 +8,7 @@ const AboutHero = () => {
       <div className="absolute inset-0 w-full h-full z-0">
         <div className="absolute inset-0 bg-black/60 z-10"></div>
         <img 
-          src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=2000&auto=format&fit=crop" 
+          src="https://images.unsplash.com/photo-1504307651254-35680f356f12?q=80&w=2000&auto=format&fit=crop" 
           alt="Highlinear Best Project" 
           className="w-full h-full object-cover"
         />

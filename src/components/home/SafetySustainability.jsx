@@ -46,7 +46,7 @@ const SafetySustainability = () => {
         <div className="relative">
           <div className="absolute inset-0 bg-green-500/20 rounded-[3rem] transform translate-x-4 translate-y-4"></div>
           <img 
-            src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=800&auto=format&fit=crop" 
+            src="https://images.unsplash.com/photo-1504307651254-35680f356f12?q=80&w=800&auto=format&fit=crop" 
             alt="Safety and Sustainability" 
             className="rounded-[3rem] w-full h-[600px] object-cover relative z-10 grayscale hover:grayscale-0 transition-all duration-700"
           />

@@ -18,7 +18,7 @@ const Services = () => {
              { title: "Concrete Structures", desc: "Solid and durable foundation." }
           ].map((s, i) => (
             <div key={i} className="bg-white rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow group border border-gray-100 overflow-hidden relative">
-              <img src={`https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=800&auto=format&fit=crop&sig=${i}`} className="w-full h-48 object-cover" alt={s.title}/>
+              <img src={`https://images.unsplash.com/photo-1504307651254-35680f356f12?q=80&w=800&auto=format&fit=crop&sig=${i}`} className="w-full h-48 object-cover" alt={s.title}/>
               <div className="p-8 relative">
                 <div className="absolute -top-6 right-8 w-12 h-12 bg-[#FF5722] text-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform cursor-pointer">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>

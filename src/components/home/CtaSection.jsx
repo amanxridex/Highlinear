@@ -7,7 +7,7 @@ const CtaSection = () => {
     <section className="w-full relative py-32 px-6 md:px-12 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=2000&auto=format&fit=crop" 
+          src="https://images.unsplash.com/photo-1504307651254-35680f356f12?q=80&w=2000&auto=format&fit=crop" 
           alt="Background" 
           className="w-full h-full object-cover"
         />

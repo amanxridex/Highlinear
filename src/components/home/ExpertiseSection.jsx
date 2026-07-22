@@ -16,7 +16,7 @@ const ExpertiseSection = () => {
     },
     { 
       title: 'Infrastructure', 
-      image: 'https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=600&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1504307651254-35680f356f12?q=80&w=600&auto=format&fit=crop',
       desc: 'Developing roads, bridges, and civic amenities.'
     }
   ];
