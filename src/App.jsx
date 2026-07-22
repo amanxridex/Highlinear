@@ -29,9 +29,12 @@ function App() {
       <nav className="w-full flex items-center justify-between px-6 md:px-12 py-5 bg-white shadow-sm z-50 sticky top-0">
         <div className="flex items-center gap-12">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-[#FF5722] flex items-center justify-center text-white font-bold text-xl">C</div>
-            <span className="font-bold text-xl">Corzone</span>
+          <a href="#" className="flex items-center">
+            <img 
+              src="/HIGHLLINEAROFFLOGO.png" 
+              alt="Highlinear Logo" 
+              className="h-10 md:h-12 object-contain"
+            />
           </a>
           
           {/* Links */}
@@ -257,16 +260,55 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="w-full bg-[#111827] text-white pt-20 pb-10 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-[#FF5722] flex items-center justify-center font-bold text-2xl">C</div>
-            <span className="font-bold text-2xl">Corzone</span>
+      <footer className="w-full bg-[#111827] text-white pt-20 pb-10 px-6 md:px-12 border-t-4 border-[#FF5722]">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div className="md:col-span-1">
+              <img src="/HIGHLLINEAROFFLOGO.png" alt="Highlinear Logo" className="h-12 md:h-16 mb-8 object-contain" />
+              <p className="text-gray-400 leading-relaxed text-sm">
+                Combining Craftsmanship with Innovation for Exceptional Results. We build the foundation of tomorrow.
+              </p>
+            </div>
+            
+            <div>
+              <h4 className="text-lg font-bold mb-6 text-white">Quick Links</h4>
+              <ul className="space-y-4 text-gray-400 text-sm">
+                <li><a href="#about" className="hover:text-[#FF5722] transition-colors">About Us</a></li>
+                <li><a href="#services" className="hover:text-[#FF5722] transition-colors">Our Services</a></li>
+                <li><a href="#projects" className="hover:text-[#FF5722] transition-colors">Projects Portfolio</a></li>
+                <li><a href="#contact" className="hover:text-[#FF5722] transition-colors">Contact Us</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="text-lg font-bold mb-6 text-white">Services</h4>
+              <ul className="space-y-4 text-gray-400 text-sm">
+                <li><a href="#" className="hover:text-[#FF5722] transition-colors">Tower Development</a></li>
+                <li><a href="#" className="hover:text-[#FF5722] transition-colors">Urban Skyline Vision</a></li>
+                <li><a href="#" className="hover:text-[#FF5722] transition-colors">Concrete Structures</a></li>
+                <li><a href="#" className="hover:text-[#FF5722] transition-colors">Interior Design</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="text-lg font-bold mb-6 text-white">Newsletter</h4>
+              <p className="text-gray-400 text-sm mb-4">Subscribe to receive updates on our latest projects.</p>
+              <div className="flex bg-white/10 rounded-full p-1 border border-gray-700">
+                <input type="email" placeholder="Email Address" className="bg-transparent text-white px-4 py-2 text-sm focus:outline-none w-full" />
+                <button className="bg-[#FF5722] rounded-full w-10 h-10 flex items-center justify-center shrink-0 hover:bg-white hover:text-[#FF5722] transition-colors shadow-lg">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+              </div>
+            </div>
           </div>
-          <div className="flex gap-8 text-gray-400 font-medium">
-            <a href="#" className="hover:text-white">Privacy</a>
-            <a href="#" className="hover:text-white">Terms</a>
-            <a href="#" className="hover:text-white">Contact</a>
+          
+          <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+            <p>&copy; {new Date().getFullYear()} High-Linear Civil Private Limited. All rights reserved.</p>
+            <div className="flex items-center gap-6">
+              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
+            </div>
           </div>
         </div>
       </footer>
