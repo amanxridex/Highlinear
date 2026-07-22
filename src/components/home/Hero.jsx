@@ -1,9 +1,25 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Phone } from 'lucide-react';
 
 const Hero = () => {
+  const phrases = [
+    "One Landmark at a Time.",
+    "With Uncompromising Quality.",
+    "For Generations to Come.",
+    "With Precision and Trust."
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % phrases.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [phrases.length]);
+
   return (
     <section className="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background Video */}
@@ -28,12 +44,26 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-3xl"
+          className="max-w-4xl"
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6">
-            Building India's Future, <span className="text-[#FF5722]">One Landmark at a Time.</span>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6 flex flex-wrap">
+            <span className="mr-3">Building India's Future,</span>
+            <span className="text-[#FF5722] relative inline-block min-w-[200px] h-[1.2em]">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute left-0"
+                >
+                  {phrases[index]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-200 font-medium mb-10 max-w-2xl leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-200 font-medium mb-10 max-w-2xl leading-relaxed mt-4 md:mt-0">
             Delivering premium residential, commercial, and infrastructure projects with uncompromising quality, innovation, and trust.
           </p>
           
