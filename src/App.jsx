@@ -90,7 +90,7 @@ function App() {
             {/* Watch Video Button */}
             <button className="relative w-40 h-16 rounded-full overflow-hidden group shadow-lg">
               <img 
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTORftPi0TkcDnBacwDg4wOkIRFFW75zOAuprhuXF5iTojRju17ZKInibqv&s=10" 
                 alt="Cityscape" 
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
@@ -114,7 +114,7 @@ function App() {
           <div className="relative">
             <div className="rounded-[2rem] overflow-hidden shadow-2xl">
               <img 
-                src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop" 
+                src="https://media.istockphoto.com/id/1911777007/photo/team-of-construction-engineers-wearing-vest-and-helmet-safety-discussing-project-at.jpg?s=612x612&w=0&k=20&c=vTTKve1PfollEhw6K6ncM1eQYevHFeX1wRqiGv9uG18=" 
                 alt="Construction Team" 
                 className="w-full h-[600px] object-cover"
               />
