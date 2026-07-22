@@ -20,15 +20,25 @@ function App() {
   return (
     <div className="min-h-screen w-full bg-[#FAFAFA] text-gray-900 flex flex-col font-sans overflow-x-hidden">
       
-      {/* Top Orange Bar (like Corzone) */}
-      <div className="w-full bg-[#FF5722] text-white text-xs font-medium py-2 px-6 flex justify-center items-center">
-        Combining Craftsmanship with Innovation for Exceptional Results
+      {/* Top Bar Marquee */}
+      <div className="w-full bg-white border-b border-gray-100 overflow-hidden py-3 px-4 hidden md:block">
+        <div className="flex whitespace-nowrap text-xs font-medium justify-center">
+          <span className="text-[#FF5722] mx-2">Strengthening Communities</span>
+          <span className="text-gray-300 mx-2">|</span>
+          <span className="text-gray-500 mx-2">Transforming Lives with Excellence in Construction</span>
+          <span className="text-gray-300 mx-2">|</span>
+          <span className="text-gray-500 mx-2">Your Trusted Partner for Construction Excellence</span>
+          <span className="text-gray-300 mx-2">|</span>
+          <span className="text-[#FF5722] mx-2">Building Landmarks and Strengthening Communities</span>
+          <span className="text-gray-300 mx-2">|</span>
+          <span className="text-gray-500 mx-2">Transforming Lives</span>
+        </div>
       </div>
 
       {/* Navigation Bar */}
       <nav className="w-full flex items-center justify-between px-6 md:px-12 py-5 bg-white shadow-sm z-50 sticky top-0">
-        <div className="flex items-center gap-12">
-          {/* Logo */}
+        {/* Logo */}
+        <div className="w-[200px]">
           <a href="#" className="flex items-center">
             <img 
               src="/HIGHLLINEAROFFLOGO.png" 
@@ -36,21 +46,20 @@ function App() {
               className="h-10 md:h-12 object-contain"
             />
           </a>
-          
-          {/* Links */}
-          <div className="hidden lg:flex items-center gap-8 font-semibold text-sm text-gray-800">
-            <a href="#" className="hover:text-[#FF5722] transition-colors">Home</a>
-            <a href="#about" className="hover:text-[#FF5722] transition-colors">About</a>
-            <a href="#services" className="hover:text-[#FF5722] transition-colors">Pages</a>
-            <a href="#projects" className="hover:text-[#FF5722] transition-colors">Blog</a>
-            <a href="#contact" className="hover:text-[#FF5722] transition-colors">Contact</a>
-          </div>
+        </div>
+        
+        {/* Links */}
+        <div className="hidden lg:flex items-center gap-8 font-semibold text-sm text-gray-800">
+          <a href="#about" className="hover:text-[#FF5722] transition-colors">About</a>
+          <a href="#news" className="hover:text-[#FF5722] transition-colors">News</a>
+          <a href="#contact" className="hover:text-[#FF5722] transition-colors">Contact</a>
+          <a href="#pages" className="hover:text-[#FF5722] transition-colors flex items-center gap-1">Pages <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg></a>
         </div>
 
         {/* Right Nav */}
-        <div className="flex items-center gap-6">
-          <button className="bg-black text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-[#FF5722] transition-colors">
-            Free Consultation
+        <div className="w-[200px] flex justify-end items-center">
+          <button className="bg-[#FF5722] text-white px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-orange-600 transition-colors shadow-md shadow-orange-500/20">
+            Get In Touch
           </button>
         </div>
       </nav>
