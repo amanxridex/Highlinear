@@ -109,17 +109,17 @@ function App() {
 
         {/* Right Image/Worker */}
         <div className="w-full lg:w-1/2 mt-12 lg:mt-0 flex justify-center lg:justify-end">
-          <div className="relative inline-block w-full max-w-3xl xl:max-w-4xl">
+          <div className="relative inline-block w-full max-w-3xl xl:max-w-4xl overflow-hidden rounded-[2.5rem] drop-shadow-2xl">
             <video 
               src="https://media.gettyimages.com/id/2149833172/video/architects-analyzing-blueprint-in-building-under-construction.mp4?s=mp4-640x640-gi&k=20&c=StHNJ-aitVv3uhlvZhJngZp85F9Zr-JSlcNpNbOSU4A=" 
               autoPlay
               loop
               muted
               playsInline
-              className="w-full h-[300px] md:h-[400px] object-cover drop-shadow-2xl rounded-[2.5rem]"
+              className="w-full h-[300px] md:h-[400px] object-cover"
             />
             {/* Floating Badge */}
-            <div className="absolute bottom-6 left-0 md:bottom-10 md:left-0 bg-white/95 backdrop-blur-sm px-6 md:px-8 py-3 md:py-4 rounded-r-full shadow-2xl flex items-center gap-4 border border-white/20">
+            <div className="absolute bottom-0 left-0 bg-white/95 backdrop-blur-sm px-6 md:px-8 py-3 md:py-4 rounded-tr-[2rem] flex items-center gap-4 border border-white/20">
                <div className="w-10 h-10 rounded-full bg-[#FF5722] text-white flex items-center justify-center font-bold">
                  ★
                </div>
