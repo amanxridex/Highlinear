@@ -110,7 +110,7 @@ function App() {
         {/* Right Image/Worker */}
         <div className="w-full lg:w-1/2 relative z-10 mt-12 lg:mt-0 flex justify-center lg:justify-end">
           <video 
-            src="https://media.gettyimages.com/id/2188908764/video/t-l-drone-point-view-of-workers-working-on-construction-site-hangzhou-china.mp4?s=mp4-640x640-gi&k=20&c=6VO9azrwDpbpvEfl8udIbwiQJL54LTrZg3Mm5iYxCqw=" 
+            src="https://media.gettyimages.com/id/2149833172/video/architects-analyzing-blueprint-in-building-under-construction.mp4?s=mp4-640x640-gi&k=20&c=StHNJ-aitVv3uhlvZhJngZp85F9Zr-JSlcNpNbOSU4A=" 
             autoPlay
             loop
             muted
