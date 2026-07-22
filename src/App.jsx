@@ -140,7 +140,7 @@ function App() {
             <div className="absolute -inset-4 border-2 border-[#FF5722] rounded-[2rem] z-0 rounded-tr-none rounded-bl-none"></div>
             <div className="rounded-[2rem] overflow-hidden shadow-2xl relative z-10">
               <img 
-                src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop" 
+                src="https://media.istockphoto.com/id/1911777007/photo/team-of-construction-engineers-wearing-vest-and-helmet-safety-discussing-project-at.jpg?s=612x612&w=0&k=20&c=vTTKve1PfollEhw6K6ncM1eQYevHFeX1wRqiGv9uG18=" 
                 alt="Construction Team" 
                 className="w-full h-[500px] object-cover"
               />
