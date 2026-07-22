@@ -57,7 +57,7 @@ function App() {
             <img 
               src="/HIGHLLINEAROFFLOGO.png" 
               alt="Highlinear Logo" 
-              className="h-14 md:h-16 object-contain"
+              className="h-12 md:h-14 object-contain"
             />
           </a>
         </div>
@@ -292,7 +292,7 @@ function App() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             <div className="md:col-span-1">
-              <img src="/HIGHLLINEAROFFLOGO.png" alt="Highlinear Logo" className="h-16 md:h-20 mb-8 object-contain" />
+              <img src="/HIGHLLINEAROFFLOGO.png" alt="Highlinear Logo" className="h-14 md:h-16 mb-8 object-contain" />
               <p className="text-gray-400 leading-relaxed text-sm">
                 Combining Craftsmanship with Innovation for Exceptional Results. We build the foundation of tomorrow.
               </p>
