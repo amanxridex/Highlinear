@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
   return (
@@ -38,10 +39,19 @@ const Navbar = () => {
         {/* Logo */}
         <div className="w-[200px] xl:w-[250px]">
           <Link to="/" className="flex items-center">
-            <img 
+            <motion.img 
               src="/HIGHLLINEAROFFLOGO.png" 
               alt="Highlinear Logo" 
               className="h-10 xl:h-12 object-contain"
+              animate={{ 
+                y: [0, -3, 0],
+                scale: [1, 1.02, 1]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
             />
           </Link>
         </div>
