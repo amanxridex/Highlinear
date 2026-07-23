@@ -8,7 +8,7 @@ const FeaturedProjects = () => {
     { name: 'Luxury Apartments', location: 'Dehradun', status: 'Completed', image: '/ABC.png' },
     { name: 'Corporate Office', location: 'Noida', status: 'Ongoing', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop' },
     { name: 'Industrial Plant', location: 'Lucknow', status: 'Completed', image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop' },
-    { name: 'Township', location: 'Mathura', status: 'Planning', image: 'https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?q=80&w=800&auto=format&fit=crop' },
+    { name: 'Resort', location: 'Thatyur', status: 'Upcoming', image: '/THECREST.png' },
     { name: 'Villa Project', location: 'Gurgaon', status: 'Ongoing', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop' },
     { name: 'Shopping Complex', location: 'Kanpur', status: 'Completed', image: 'https://images.unsplash.com/photo-1519999482648-25049ddd37b1?q=80&w=800&auto=format&fit=crop' },
   ];
